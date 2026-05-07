@@ -1,14 +1,78 @@
+import {
+    SiJavascript,
+    SiTypescript,
+    SiPhp,
+    SiOpenjdk,
+    SiPython,
+    SiHtml5,
+    SiCss,
+    SiSass,
+    SiBootstrap,
+    SiTailwindcss,
+    SiReact,
+    SiNextdotjs,
+    SiAngular,
+    SiNodedotjs,
+    SiMongodb,
+    SiMysql,
+    SiAndroidstudio,
+    SiFlutter,
+    SiPostman,
+    SiGithub,
+    SiLinux,
+} from 'react-icons/si';
+
+import { FaReact } from 'react-icons/fa';
+
 import { IProject } from '@/types';
+
+export interface ITechStack {
+    name: string;
+    icon: React.ComponentType<{ className?: string }>;
+    color: string;
+}
 
 export const GENERAL_INFO = {
     email: 'tasmirolislam@gmail.com',
-
     emailSubject: "Let's collaborate on a project",
     emailBody: 'Hi Tajmirul, I am reaching out to you because...',
-
     oldPortfolio: 'https://www.legacy.me.toinfinite.dev',
     upworkProfile: 'https://www.upwork.com/freelancers/tajmirul',
 };
+
+export const MY_STACK: ITechStack[] = [
+    // Programming Languages
+    { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
+    { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
+    { name: 'PHP', icon: SiPhp, color: '#777BB4' },
+    { name: 'Java', icon: SiOpenjdk, color: '#007396' },
+    { name: 'Python', icon: SiPython, color: '#3776AB' },
+
+    // Frontend
+    { name: 'HTML', icon: SiHtml5, color: '#E34C26' },
+    { name: 'CSS', icon: SiCss, color: '#1572B6' },
+    { name: 'SCSS', icon: SiSass, color: '#C69' },
+    { name: 'Bootstrap', icon: SiBootstrap, color: '#7952B3' },
+    { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
+    { name: 'React', icon: SiReact, color: '#61DAFB' },
+    { name: 'Next.js', icon: SiNextdotjs, color: '#000000' },
+    { name: 'Angular', icon: SiAngular, color: '#DD0031' },
+
+    // Backend & Database
+    { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
+    { name: 'MongoDB', icon: SiMongodb, color: '#13AA52' },
+    { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
+
+    // Mobile Development
+    { name: 'Android Studio', icon: SiAndroidstudio, color: '#3DDC84' },
+    { name: 'React Native', icon: FaReact, color: '#61DAFB' },
+    { name: 'Flutter', icon: SiFlutter, color: '#02569B' },
+
+    // Tools & Platforms
+    { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
+    { name: 'GitHub', icon: SiGithub, color: '#181717' },
+    { name: 'Linux', icon: SiLinux, color: '#FCC624' },
+];
 
 export const SOCIAL_LINKS = [
     { name: 'github', url: 'https://github.com/Tajmirul' },
@@ -16,97 +80,6 @@ export const SOCIAL_LINKS = [
     { name: 'facebook', url: 'https://www.facebook.com/tajmirul.2000' },
     { name: 'Old Version', url: GENERAL_INFO.oldPortfolio },
 ];
-
-export const MY_STACK = {
-    frontend: [
-        {
-            name: 'JavaScript',
-            icon: '/logo/js.png',
-        },
-        {
-            name: 'TypeScript',
-            icon: '/logo/ts.png',
-        },
-        {
-            name: 'React',
-            icon: '/logo/react.png',
-        },
-        {
-            name: 'Next.js',
-            icon: '/logo/next.png',
-        },
-        {
-            name: 'Redux',
-            icon: '/logo/redux.png',
-        },
-        {
-            name: 'Tailwind CSS',
-            icon: '/logo/tailwind.png',
-        },
-        {
-            name: 'GSAP',
-            icon: '/logo/gsap.png',
-        },
-        {
-            name: 'Framer Motion',
-            icon: '/logo/framer-motion.png',
-        },
-        {
-            name: 'Sass',
-            icon: '/logo/sass.png',
-        },
-        {
-            name: 'Bootstrap',
-            icon: '/logo/bootstrap.svg',
-        },
-    ],
-    backend: [
-        {
-            name: 'Node.js',
-            icon: '/logo/node.png',
-        },
-        {
-            name: 'NestJS',
-            icon: '/logo/nest.svg',
-        },
-        {
-            name: 'Express.js',
-            icon: '/logo/express.png',
-        },
-    ],
-    database: [
-        {
-            name: 'MySQL',
-            icon: '/logo/mysql.svg',
-        },
-        {
-            name: 'PostgreSQL',
-            icon: '/logo/postgreSQL.png',
-        },
-        {
-            name: 'MongoDB',
-            icon: '/logo/mongodb.svg',
-        },
-        {
-            name: 'Prisma',
-            icon: '/logo/prisma.png',
-        },
-    ],
-    tools: [
-        {
-            name: 'Git',
-            icon: '/logo/git.png',
-        },
-        {
-            name: 'Docker',
-            icon: '/logo/docker.svg',
-        },
-        {
-            name: 'AWS',
-            icon: '/logo/aws.png',
-        },
-    ],
-};
 
 export const PROJECTS: IProject[] = [
     {

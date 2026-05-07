@@ -1,23 +1,43 @@
 'use client';
 import SectionTitle from '@/components/SectionTitle';
-import { MY_STACK } from '@/lib/data';
+import TechStackCube from '@/components/TechStackCube';
+import { MY_STACK, ITechStack } from '@/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
-import Image from 'next/image';
-import React, { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const Skills = () => {
     const containerRef = useRef<HTMLDivElement>(null);
 
+    // Create inverted triangle layout
+    const triangleRows = useMemo(() => {
+        const rows: Array<Array<ITechStack>> = [];
+        let currentIndex = 0;
+
+        // Define row sizes for inverted triangle (pointing down)
+        // Starting with fewer items at top, more at bottom
+        const rowSizes = [3, 4, 5, 6, 4]; // Total: 22 items
+
+        rowSizes.forEach((size) => {
+            const row = MY_STACK.slice(currentIndex, currentIndex + size);
+            if (row.length > 0) {
+                rows.push(row);
+                currentIndex += size;
+            }
+        });
+
+        return rows;
+    }, []);
+
     useGSAP(
         () => {
-            const slideUpEl =
-                containerRef.current?.querySelectorAll('.slide-up');
+            const cubeEls =
+                containerRef.current?.querySelectorAll('[data-tech-cube]');
 
-            if (!slideUpEl?.length) return;
+            if (!cubeEls?.length) return;
 
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -28,11 +48,11 @@ const Skills = () => {
                 },
             });
 
-            tl.from('.slide-up', {
+            tl.from('[data-tech-cube]', {
                 opacity: 0,
                 y: 40,
                 ease: 'none',
-                stagger: 0.4,
+                stagger: 0.08,
             });
         },
         { scope: containerRef },
@@ -62,75 +82,29 @@ const Skills = () => {
             <div className="container">
                 <SectionTitle title="My Stack" />
 
-                <div className="space-y-20">
-                    {Object.entries(MY_STACK).map(([key, value]) => (
-                        <div className="grid sm:grid-cols-12" key={key}>
-                            <div className="sm:col-span-5">
-                                <p className="slide-up text-5xl font-anton leading-none text-muted-foreground uppercase">
-                                    {key}
-                                </p>
-                            </div>
-
-                            <div className="sm:col-span-7 flex gap-x-11 gap-y-9 flex-wrap">
-                                {value.map((item) => (
-                                    <div
-                                        className="slide-up flex gap-3.5 items-center leading-none"
-                                        key={item.name}
-                                    >
-                                        <div>
-                                            <Image
-                                                src={item.icon}
-                                                alt={item.name}
-                                                width="40"
-                                                height="40"
-                                                className="max-h-10"
-                                            />
-                                        </div>
-                                        <span className="text-2xl capitalize">
-                                            {item.name}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-
-    return (
-        <section id="my-stack" ref={containerRef}>
-            <div className="container">
-                <SectionTitle title="My Stack" />
-
-                <div className="space-y-20">
-                    {Object.entries(MY_STACK).map(([key, value]) => (
-                        <div className="grid sm:grid-cols-12" key={key}>
-                            <div className="sm:col-span-5">
-                                <p className="slide-up text-5xl font-anton leading-none text-muted-foreground uppercase">
-                                    {key}
-                                </p>
-                            </div>
-                            <div className="sm:col-span-7 flex gap-x-11 gap-y-9 flex-wrap">
-                                {value.map((item) => (
-                                    <div
-                                        className="slide-up flex gap-3.5 items-center leading-none"
-                                        key={item.name}
-                                    >
-                                        <Image
-                                            src={item.icon}
-                                            alt={item.name}
-                                            width="40"
-                                            height="40"
-                                            className="h-10"
-                                        />
-                                        <span className="text-2xl capitalize">
-                                            {item.name}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
+                <div className="flex flex-col items-center gap-3 sm:gap-4">
+                    {triangleRows.map((row, rowIndex) => (
+                        <div
+                            key={rowIndex}
+                            className="flex justify-center gap-2 sm:gap-3"
+                            style={{
+                                marginLeft: `${(triangleRows.length - rowIndex - 1) * 0.75}rem`,
+                                marginRight: `${(triangleRows.length - rowIndex - 1) * 0.75}rem`,
+                            }}
+                        >
+                            {row.map((tech, techIndex) => (
+                                <div
+                                    key={`${tech.name}-${techIndex}`}
+                                    data-tech-cube
+                                    className="flex-shrink-0"
+                                >
+                                    <TechStackCube 
+                                        name={tech.name} 
+                                        icon={tech.icon}
+                                        color={tech.color}
+                                    />
+                                </div>
+                            ))}
                         </div>
                     ))}
                 </div>
