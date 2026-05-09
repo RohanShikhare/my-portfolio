@@ -38,6 +38,7 @@ export const GENERAL_INFO = {
     emailBody: 'Hi Tajmirul, I am reaching out to you because...',
     oldPortfolio: 'https://www.legacy.me.toinfinite.dev',
     upworkProfile: 'https://www.upwork.com/freelancers/tajmirul',
+    location: 'Bangladesh',
 };
 
 export const MY_STACK: ITechStack[] = [

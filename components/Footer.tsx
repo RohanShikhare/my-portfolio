@@ -1,66 +1,124 @@
-import { GENERAL_INFO } from '@/lib/data';
-import { GitFork, Star } from 'lucide-react';
+'use client';
+import { GENERAL_INFO, SOCIAL_LINKS } from '@/lib/data';
+import { MoveUpRight, Mail, MapPin } from 'lucide-react';
+import { useState } from 'react';
 
-interface RepoStats {
-    stargazers_count: number;
-    forks_count: number;
+interface SocialLink {
+    [key: string]: boolean;
 }
 
-const Footer = async () => {
-    const repoStats = await fetch(
-        'https://api.github.com/repos/tajmirul/portfolio-2.0',
-        {
-            next: {
-                revalidate: 60 * 60, // 1 hour
-            },
-        },
-    );
+const Footer = () => {
+    const [hoveredLinks, setHoveredLinks] = useState<SocialLink>({});
 
-    const { stargazers_count, forks_count } =
-        (await repoStats.json()) as RepoStats;
+    const handleSocialHover = (name: string, isHovered: boolean) => {
+        setHoveredLinks((prev) => ({
+            ...prev,
+            [name]: isHovered,
+        }));
+    };
 
     return (
-        <footer className="text-center pb-5" id="contact">
-            <div className="container">
-                <p className="text-lg">Have a project in mind?</p>
-                <a
-                    href={`mailto:${GENERAL_INFO.email}`}
-                    className="text-3xl sm:text-4xl font-anton inline-block mt-5 mb-10 hover:underline"
-                >
-                    {GENERAL_INFO.email}
-                </a>
+        <footer
+            className="border-t border-muted/20 py-16 sm:py-20 lg:py-24 overflow-hidden"
+            id="contact"
+        >
+            <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Title Section */}
+                <div className="mb-12 sm:mb-16 lg:mb-20">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight group hover:opacity-80 transition-opacity duration-300 cursor-default">
+                        Tajmirul Islam
+                    </h2>
+                </div>
 
-                <div className="">
-                    <a
-                        href="https://github.com/Tajmirul/portfolio-2.0"
-                        target="_blank"
-                        className="leading-none text-muted-foreground hover:underline hover:text-white"
-                    >
-                        Design & built by Tajmirul Islam
-                        <div className="flex items-center justify-center gap-5 pt-1">
-                            <span className="flex items-center gap-2">
-                                <Star size={18} /> {stargazers_count}
-                            </span>
-                            <span className="flex items-center gap-2">
-                                <GitFork size={18} /> {forks_count}
-                            </span>
+                {/* Main Footer Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 lg:gap-16">
+                    {/* Left Section - Contact Info */}
+                    <div className="space-y-6">
+                        {/* Email */}
+                        <div className="space-y-2">
+                            <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                                Email
+                            </p>
+                            <a
+                                href={`mailto:${GENERAL_INFO.email}`}
+                                className="group/email flex items-center gap-2 text-sm sm:text-base transition-all duration-300 hover:text-primary"
+                            >
+                                <Mail className="w-4 h-4 flex-shrink-0 opacity-60 group-hover/email:opacity-100 transition-opacity" />
+                                <span className="break-all hover:underline">
+                                    {GENERAL_INFO.email}
+                                </span>
+                            </a>
                         </div>
-                    </a>
 
-                    {/* Note: If you are not Tajmirul, use this copyright message instead */}
-                    {/* <a href='https://www.me.toinfinite.dev/' className="leading-none text-muted-foreground hover:underline hover:text-white">
-                        Design & built by Tajmirul Islam <br />
-                        Revised by YOUR NAME
-
-                        <div className="flex items-center justify-center gap-5 pt-1">
-                            <span className='flex items-center gap-2'>
-                                <Star size={14} /> {stargazers_count}
-                            </span>
-                            <span className='flex items-center gap-2'>
-                                <GitFork size={14} /> {forks_count}
-                            </span>
+                        {/* Location */}
+                        <div className="space-y-2">
+                            <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                                Location
+                            </p>
+                            <div className="flex items-center gap-2 text-sm sm:text-base">
+                                <MapPin className="w-4 h-4 flex-shrink-0 opacity-60" />
+                                <span>{GENERAL_INFO.location}</span>
+                            </div>
                         </div>
-                    </a> */}
+                    </div>
+
+                    {/* Middle Section - Spacer on Desktop, Hidden on Mobile */}
+                    <div className="hidden md:block" />
+
+                    {/* Right Section - Social Links */}
+                    <div className="space-y-3 sm:space-y-4">
+                        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
+                            Connect
+                        </p>
+                        <ul className="space-y-3">
+                            {SOCIAL_LINKS.map((link) => (
+                                <li
+                                    key={link.name}
+                                    onMouseEnter={() => handleSocialHover(link.name, true)}
+                                    onMouseLeave={() => handleSocialHover(link.name, false)}
+                                >
+                                    <a
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="group/link flex items-center gap-2 text-sm sm:text-base capitalize transition-all duration-300"
+                                    >
+                                        {/* Animated underline */}
+                                        <span className="relative pb-1">
+                                            <span className="relative z-10">
+                                                {link.name}
+                                            </span>
+                                            <span
+                                                className={`absolute bottom-0 left-0 h-px bg-gradient-to-r from-primary/60 to-primary/30 transition-all duration-300 ${
+                                                    hoveredLinks[link.name]
+                                                        ? 'w-full opacity-100'
+                                                        : 'w-0 opacity-0'
+                                                }`}
+                                            />
+                                        </span>
+
+                                        {/* Arrow Icon with subtle glow */}
+                                        <span
+                                            className={`inline-flex flex-shrink-0 transition-all duration-300 ${
+                                                hoveredLinks[link.name]
+                                                    ? 'translate-x-1 opacity-100 drop-shadow-[0_0_8px_rgba(168,85,247,0.3)]'
+                                                    : 'translate-x-0 opacity-50'
+                                            }`}
+                                        >
+                                            <MoveUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                        </span>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+
+                {/* Bottom Divider */}
+                <div className="mt-16 sm:mt-20 pt-8 sm:pt-12 border-t border-muted/10">
+                    <p className="text-xs sm:text-sm text-muted-foreground text-center sm:text-left">
+                        © 2026 Tajmirul Islam. All rights reserved.
+                    </p>
                 </div>
             </div>
         </footer>
