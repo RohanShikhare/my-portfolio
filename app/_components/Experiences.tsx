@@ -311,75 +311,135 @@ const Experiences = () => {
         () => {
             if (!containerRef.current || !timelineRef.current) return;
 
-            gsap.utils.toArray('.experience-entry').forEach((entry: any, index: number) => {
-                gsap.fromTo(
-                    entry,
-                    { y: 35, opacity: 0 },
-                    {
-                        y: 0,
-                        opacity: 1,
-                        duration: 0.75,
-                        ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: entry,
-                            start: 'top 92%',
-                            end: 'top 65%',
-                            toggleActions: 'play none none reverse',
-                            markers: false,
-                        },
-                    },
-                );
-            });
-
-            const progressBar = timelineRef.current.querySelector('.timeline-progress');
-            const progressTip = timelineRef.current.querySelector('.timeline-progress-tip');
-            if (progressBar) {
-                gsap.to(progressBar, {
-                    height: '100%',
-                    ease: 'none',
+            gsap.fromTo(
+                '.timeline-progress, .timeline-progress-tip',
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 0.6,
+                    ease: 'power2.out',
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: 'top center',
-                        end: 'bottom center',
-                        scrub: 0.6,
-                        onUpdate: (self) => {
-                            if (progressTip) {
-                                const barHeight = progressBar.offsetHeight;
-                                progressTip.style.transform = `translateY(${barHeight}px)`;
-                            }
-                        },
+                        start: 'top 85%',
+                        end: 'top 50%',
+                        toggleActions: 'play none none reverse',
                         markers: false,
                     },
+                },
+            );
+
+            gsap.utils
+                .toArray('.experience-entry')
+                .forEach((entry: any, index: number) => {
+                    gsap.fromTo(
+                        entry,
+                        { y: 35, opacity: 0 },
+                        {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.75,
+                            ease: 'power3.out',
+                            scrollTrigger: {
+                                trigger: entry,
+                                start: 'top 92%',
+                                end: 'top 65%',
+                                toggleActions: 'play none none reverse',
+                                markers: false,
+                            },
+                        },
+                    );
                 });
-            }
+
+            // Desktop timeline progress animation
+            gsap.utils
+                .toArray('.hidden.md\\:block .timeline-progress')
+                .forEach((progressBar: any) => {
+                    const progressTip = (
+                        progressBar.parentElement as HTMLElement
+                    ).querySelector('.timeline-progress-tip') as HTMLElement;
+                    gsap.to(progressBar, {
+                        height: '100%',
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: containerRef.current,
+                            start: 'top center',
+                            end: 'bottom center',
+                            scrub: 0.6,
+                            onUpdate: (self) => {
+                                if (progressTip) {
+                                    const barHeight = (
+                                        progressBar as HTMLElement
+                                    ).offsetHeight;
+                                    progressTip.style.transform = `translateY(${barHeight}px)`;
+                                }
+                            },
+                            markers: false,
+                        },
+                    });
+                });
+
+            // Mobile timeline progress animation
+            gsap.utils
+                .toArray('.md\\:hidden.absolute .timeline-progress')
+                .forEach((progressBar: any) => {
+                    const progressTip = (
+                        progressBar.parentElement as HTMLElement
+                    ).querySelector('.timeline-progress-tip') as HTMLElement;
+                    gsap.to(progressBar, {
+                        height: '100%',
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: containerRef.current,
+                            start: 'top center',
+                            end: 'bottom center',
+                            scrub: 0.6,
+                            onUpdate: (self) => {
+                                if (progressTip) {
+                                    const barHeight = (
+                                        progressBar as HTMLElement
+                                    ).offsetHeight;
+                                    progressTip.style.transform = `translateY(${barHeight}px)`;
+                                }
+                            },
+                            markers: false,
+                        },
+                    });
+                });
         },
         { scope: containerRef },
     );
 
     return (
-        <section className="py-section bg-[#05060c] text-white overflow-hidden" id="my-experience">
-            <div className="container relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8" ref={containerRef}>
+        <section
+            className="py-section text-white overflow-hidden"
+            id="my-experience"
+        >
+            <div
+                className="container relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
+                ref={containerRef}
+            >
                 <SectionTitle
                     title="Career & Experience"
                     classNames={{ title: 'text-2xl sm:text-3xl' }}
                 />
                 <p className="max-w-2xl text-xs sm:text-sm leading-7 text-violet-200/70 mb-14 sm:mb-16">
-                    A premium dark timeline tracking career progression with scroll-based animation and refined typography.
+                    A premium dark timeline tracking career progression with
+                    scroll-based animation and refined typography.
                 </p>
 
                 <div className="relative" ref={timelineRef}>
                     <div className="absolute hidden md:block left-1/2 top-0 h-full w-px -translate-x-1/2 bg-violet-400/15">
                         <div className="timeline-progress absolute left-0 top-0 w-full h-0 bg-gradient-to-b from-violet-400/95 via-violet-400/50 to-violet-400/10 shadow-[0_0_30px_rgba(168,85,247,0.4)]" />
-                        <div className="timeline-progress-tip absolute left-1/2 top-0 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-400/90 shadow-[0_0_24px_rgba(168,85,247,0.5),0_0_48px_rgba(168,85,247,0.25)]">
+                        <div style={{left:"-10px"}} className="timeline-progress-tip absolute left-1/2 top-0 h-5 w-5 -translate-y-1/2 rounded-full bg-violet-400/90 shadow-[0_0_24px_rgba(168,85,247,0.5),0_0_48px_rgba(168,85,247,0.25)]">
                             <div className="absolute inset-0 rounded-full bg-violet-500/40 blur-lg" />
-                            <div className="relative h-2 w-2 rounded-full bg-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+                            <div className="absolute h-2 w-2 rounded-full bg-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
                         </div>
                     </div>
                     <div className="absolute md:hidden left-8 top-0 h-full w-px bg-violet-400/15">
                         <div className="timeline-progress absolute left-0 top-0 w-full h-0 bg-gradient-to-b from-violet-400/95 via-violet-400/50 to-violet-400/10 shadow-[0_0_30px_rgba(168,85,247,0.4)]" />
-                        <div className="timeline-progress-tip absolute left-1/2 top-0 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-400/90 shadow-[0_0_20px_rgba(168,85,247,0.5),0_0_40px_rgba(168,85,247,0.25)]">
+                        <div style={{left:"-8px"}} className="timeline-progress-tip absolute left-1/2 top-0 h-4 w-4 -translate-y-1/2 rounded-full bg-violet-400/90 shadow-[0_0_20px_rgba(168,85,247,0.5),0_0_40px_rgba(168,85,247,0.25)]">
                             <div className="absolute inset-0 rounded-full bg-violet-500/40 blur-lg" />
-                            <div className="relative h-1.5 w-1.5 rounded-full bg-white absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
+                            <div className="absolute h-1.5 w-1.5 rounded-full bg-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
                         </div>
                     </div>
 
@@ -388,7 +448,10 @@ const Experiences = () => {
                             const active = index === 0;
 
                             return (
-                                <div key={entry.title} className="experience-entry relative">
+                                <div
+                                    key={entry.title}
+                                    className="experience-entry relative"
+                                >
                                     <div className="md:hidden pl-14 sm:pl-16">
                                         <div className="flex items-start gap-3 sm:gap-4">
                                             <div className="flex flex-col items-center flex-shrink-0">
@@ -443,4 +506,3 @@ const Experiences = () => {
 };
 
 export default Experiences;
-
