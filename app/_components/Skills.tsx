@@ -78,18 +78,18 @@ const Skills = () => {
     );
 
     return (
-        <section id="my-stack" ref={containerRef}>
-            <div className="container">
+        <section id="my-stack" ref={containerRef} className="overflow-hidden">
+            <div className="container max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 xl:px-8">
                 <SectionTitle title="My Stack" />
 
-                <div className="flex flex-col items-center gap-3 sm:gap-4">
+                <div className="flex flex-col items-center gap-2 sm:gap-3 md:gap-4 overflow-hidden">
                     {triangleRows.map((row, rowIndex) => (
                         <div
                             key={rowIndex}
-                            className="flex justify-center gap-2 sm:gap-3"
+                            className="flex justify-center gap-1.5 sm:gap-2 md:gap-3 flex-wrap"
                             style={{
-                                marginLeft: `${(triangleRows.length - rowIndex - 1) * 0.75}rem`,
-                                marginRight: `${(triangleRows.length - rowIndex - 1) * 0.75}rem`,
+                                marginLeft: `${Math.max(0, (triangleRows.length - rowIndex - 1) * 0.5)}rem`,
+                                marginRight: `${Math.max(0, (triangleRows.length - rowIndex - 1) * 0.5)}rem`,
                             }}
                         >
                             {row.map((tech, techIndex) => (

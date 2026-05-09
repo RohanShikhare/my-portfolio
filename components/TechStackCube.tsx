@@ -15,11 +15,11 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({ name, icon: Icon, color }
         <div
             className={cn(
                 'group relative inline-flex flex-col items-center justify-center',
-                'w-24 h-24 sm:w-28 sm:h-28 p-3 rounded-lg',
+                'w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 p-2 sm:p-3 rounded-lg',
                 'bg-gradient-to-b from-muted/15 to-muted/5',
                 'border border-muted/40',
                 'transition-all duration-500 ease-out',
-                'hover:border-primary/70 hover:scale-110',
+                'hover:border-primary/70 hover:scale-105 sm:hover:scale-110',
                 'cursor-pointer',
                 'backdrop-blur-sm',
             )}
@@ -30,8 +30,8 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({ name, icon: Icon, color }
             <div
                 className={cn(
                     'absolute inset-0 rounded-lg opacity-0 transition-opacity duration-500',
-                    'bg-gradient-to-br from-primary/25 via-secondary/15 to-primary/25 blur-lg',
-                    isHovered && 'opacity-100',
+                    'bg-gradient-to-br from-primary/15 via-secondary/10 to-primary/15 blur-md',
+                    isHovered && 'opacity-60',
                 )}
                 aria-hidden="true"
             />
@@ -40,8 +40,8 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({ name, icon: Icon, color }
             <div
                 className={cn(
                     'absolute inset-0 rounded-lg opacity-0 transition-opacity duration-500',
-                    'bg-gradient-to-r from-primary/60 via-secondary/50 to-primary/60 blur-sm',
-                    isHovered && 'opacity-80',
+                    'bg-gradient-to-r from-primary/40 via-secondary/30 to-primary/40 blur-sm',
+                    isHovered && 'opacity-50',
                 )}
                 style={{
                     WebkitMaskImage: 'linear-gradient(to right, transparent, black, transparent)',
@@ -55,9 +55,9 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({ name, icon: Icon, color }
                 {/* Icon container */}
                 <div
                     className={cn(
-                        'relative w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0',
+                        'relative w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 flex items-center justify-center flex-shrink-0',
                         'transition-all duration-500',
-                        isHovered && 'drop-shadow-[0_0_20px_rgba(0,194,111,0.9)]',
+                        isHovered && 'drop-shadow-[0_0_12px_rgba(0,194,111,0.7)]',
                     )}
                 >
                     <Icon
@@ -69,7 +69,7 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({ name, icon: Icon, color }
                         )}
                         style={{
                             color: isHovered ? color : '#a0a0a0',
-                            filter: isHovered ? 'drop-shadow(0 0 8px rgba(0, 194, 111, 0.6))' : 'saturate(0.3) brightness(0.7)',
+                            filter: isHovered ? 'drop-shadow(0 0 6px rgba(0, 194, 111, 0.5))' : 'saturate(0.3) brightness(0.7)',
                         }}
                     />
                 </div>
@@ -77,7 +77,7 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({ name, icon: Icon, color }
                 {/* Tech name */}
                 <span
                     className={cn(
-                        'text-[10px] sm:text-xs font-semibold text-center px-1 leading-tight',
+                        'text-[8px] sm:text-[10px] md:text-xs font-semibold text-center px-1 leading-tight',
                         'transition-all duration-500 line-clamp-2',
                         isHovered
                             ? 'text-foreground'
