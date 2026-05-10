@@ -74,7 +74,6 @@ const Banner = () => {
                     </div>
                 </div>
 
-               
                 <div className="md:absolute bottom-[10%] right-[4%] flex md:flex-col gap-4 md:gap-8 text-center md:text-right">
                     <a
                         href="YOUR_GITHUB_LINK"
@@ -82,7 +81,7 @@ const Banner = () => {
                         rel="noopener noreferrer"
                         className="slide-up-and-fade group transition-all duration-300"
                     >
-                        <FaGithub className="text-3xl sm:text-4xl text-white transition-all duration-300 group-hover:text-green-400 group-hover:drop-shadow-[0_0_10px_rgba(74,222,128,0.8)]" />
+                        <FaGithub className="text-3xl sm:text-4xl text-white transition-all duration-300 group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_10px_rgba(0,255,255,0.7)]" />
                     </a>
 
                     <a
@@ -91,7 +90,7 @@ const Banner = () => {
                         rel="noopener noreferrer"
                         className="slide-up-and-fade group transition-all duration-300"
                     >
-                        <FaLinkedin className="text-3xl sm:text-4xl text-white transition-all duration-300 group-hover:text-green-400 group-hover:drop-shadow-[0_0_10px_rgba(74,222,128,0.8)]" />
+                        <FaLinkedin className="text-3xl sm:text-4xl text-white transition-all duration-300 group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_10px_rgba(0,255,255,0.7)]" />
                     </a>
                 </div>
             </div>

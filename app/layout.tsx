@@ -52,7 +52,7 @@ export default function RootLayout({
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
             </Script>
             <body
-                className={`${antonFont.variable} ${robotoFlex.variable} antialiased`}
+                className={`${antonFont.variable} ${robotoFlex.variable} antialiased bg-black`}
             >
                 <ReactLenis
                     root

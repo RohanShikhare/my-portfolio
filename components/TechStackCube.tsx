@@ -8,7 +8,11 @@ interface TechStackCubeProps {
     color: string;
 }
 
-const TechStackCube: React.FC<TechStackCubeProps> = ({ name, icon: Icon, color }) => {
+const TechStackCube: React.FC<TechStackCubeProps> = ({
+    name,
+    icon: Icon,
+    color,
+}) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -44,8 +48,10 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({ name, icon: Icon, color }
                     isHovered && 'opacity-50',
                 )}
                 style={{
-                    WebkitMaskImage: 'linear-gradient(to right, transparent, black, transparent)',
-                    maskImage: 'linear-gradient(to right, transparent, black, transparent)',
+                    WebkitMaskImage:
+                        'linear-gradient(to right, transparent, black, transparent)',
+                    maskImage:
+                        'linear-gradient(to right, transparent, black, transparent)',
                 }}
                 aria-hidden="true"
             />
@@ -57,19 +63,20 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({ name, icon: Icon, color }
                     className={cn(
                         'relative w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 flex items-center justify-center flex-shrink-0',
                         'transition-all duration-500',
-                        isHovered && 'drop-shadow-[0_0_12px_rgba(0,194,111,0.7)]',
+                        isHovered &&
+                            'drop-shadow-[0_0_12px_rgba(0,194,111,0.7)]',
                     )}
                 >
                     <Icon
                         className={cn(
                             'w-full h-full transition-all duration-500',
-                            isHovered
-                                ? 'opacity-100'
-                                : 'opacity-40',
+                            isHovered ? 'opacity-100' : 'opacity-40',
                         )}
                         style={{
                             color: isHovered ? color : '#a0a0a0',
-                            filter: isHovered ? 'drop-shadow(0 0 6px rgba(0, 194, 111, 0.5))' : 'saturate(0.3) brightness(0.7)',
+                            filter: isHovered
+                                ? 'drop-shadow(0 0 2px rgba(0, 194, 111, 0.35))'
+                                : 'saturate(0.3) brightness(0.7)',
                         }}
                     />
                 </div>
