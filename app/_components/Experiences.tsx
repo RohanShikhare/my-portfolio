@@ -197,14 +197,14 @@ const Experiences = () => {
                                     <div className="md:hidden pl-14 sm:pl-16">
                                         <div className="flex items-start gap-3 sm:gap-4">
                                             <div className="flex flex-col items-center flex-shrink-0">
-                                                <span className="mb-6 text-lg sm:text-2xl font-semibold uppercase tracking-[0.2em] text-cyan-300">
+                                                <span className="mb-6 text-lg sm:text-2xl uppercase tracking-[0.2em] text-cyan-300">
                                                     {entry.year}
                                                 </span>
                                             </div>
 
                                             <div className="space-y-2 flex-grow">
                                                 <div>
-                                                    <p className="text-base sm:text-lg font-semibold leading-tight text-white">
+                                                    <p className="text-base sm:text-lg leading-tight text-white">
                                                         {entry.title}
                                                     </p>
 
@@ -222,7 +222,7 @@ const Experiences = () => {
 
                                     <div className="hidden md:grid md:grid-cols-[1fr_auto_1.4fr] md:items-start md:gap-10">
                                         <div className="space-y-2">
-                                            <p className="text-lg font-semibold leading-tight text-white">
+                                            <p className="text-lg leading-tight text-white">
                                                 {entry.title}
                                             </p>
                                             <p className="text-xs uppercase tracking-[0.25em] text-cyan-300/70">
@@ -231,7 +231,7 @@ const Experiences = () => {
                                         </div>
 
                                         <div className="relative flex flex-col items-center gap-8 flex-shrink-0">
-                                            <span className="text-2xl sm:text-3xl font-semibold uppercase tracking-[0.2em] text-slate-100">
+                                            <span className="text-2xl sm:text-3xl uppercase tracking-[0.2em] text-slate-100">
                                                 {entry.year}
                                             </span>
                                         </div>

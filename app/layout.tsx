@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Instrument_Serif, Inter } from 'next/font/google';
+import { Bebas_Neue, Italianno } from 'next/font/google';
 import { ReactLenis } from 'lenis/react';
 
 import 'lenis/dist/lenis.css';
@@ -14,16 +14,16 @@ import StickyEmail from './_components/StickyEmail';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 
-const instrumentSerif = Instrument_Serif({
+const bebasNeue = Bebas_Neue({
     weight: '400',
-    style: 'italic',
     subsets: ['latin'],
-    variable: '--font-instrument-serif',
+    variable: '--font-bebas',
 });
 
-const inter = Inter({
+const italianno = Italianno({
+    weight: '400',
     subsets: ['latin'],
-    variable: '--font-inter',
+    variable: '--font-italianno',
 });
 
 export const metadata: Metadata = {
@@ -49,8 +49,8 @@ export default function RootLayout({
                 a.appendChild(r);
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
             </Script>
-             <body
-                className={`${instrumentSerif.variable} ${inter.variable} antialiased bg-black font-[family:var(--font-inter)]`}
+            <body
+                className={`${bebasNeue.variable} ${italianno.variable} antialiased bg-black font-[var(--font-bebas)]`}
             >
                 <ReactLenis
                     root
@@ -59,7 +59,6 @@ export default function RootLayout({
                         duration: 1.4,
                     }}
                 >
-    
                     <Navbar />
                     <main>{children}</main>
                     <Footer />

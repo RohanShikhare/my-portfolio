@@ -84,7 +84,7 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({
                 {/* Tech name */}
                 <span
                     className={cn(
-                        'text-[8px] sm:text-[10px] md:text-xs font-semibold text-center px-1 leading-tight',
+                        'text-[8px] sm:text-[10px] md:text-xs text-center px-1 leading-tight',
                         'transition-all duration-500 line-clamp-2',
                         isHovered
                             ? 'text-foreground'
