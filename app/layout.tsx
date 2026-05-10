@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Anton, Roboto_Flex } from 'next/font/google';
+import { Instrument_Serif, Inter } from 'next/font/google';
 import { ReactLenis } from 'lenis/react';
 
 import 'lenis/dist/lenis.css';
@@ -14,18 +14,16 @@ import StickyEmail from './_components/StickyEmail';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from 'next/script';
 
-const antonFont = Anton({
+const instrumentSerif = Instrument_Serif({
     weight: '400',
-    style: 'normal',
+    style: 'italic',
     subsets: ['latin'],
-    variable: '--font-anton',
+    variable: '--font-instrument-serif',
 });
 
-const robotoFlex = Roboto_Flex({
-    weight: ['100', '400', '500', '600', '700', '800'],
-    style: 'normal',
+const inter = Inter({
     subsets: ['latin'],
-    variable: '--font-roboto-flex',
+    variable: '--font-inter',
 });
 
 export const metadata: Metadata = {
@@ -51,8 +49,8 @@ export default function RootLayout({
                 a.appendChild(r);
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
             </Script>
-            <body
-                className={`${antonFont.variable} ${robotoFlex.variable} antialiased bg-black`}
+             <body
+                className={`${instrumentSerif.variable} ${inter.variable} antialiased bg-black font-[family:var(--font-inter)]`}
             >
                 <ReactLenis
                     root
