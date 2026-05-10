@@ -77,7 +77,7 @@ const Navbar = () => {
 
             <div
                 className={cn(
-                    'fixed top-0 right-0 h-[100dvh] w-[500px] max-w-[calc(100vw-3rem)] transform translate-x-full transition-transform duration-700 z-[3] overflow-hidden gap-y-14',
+                    'fixed top-0 right-0 h-[100dvh] w-full max-w-none transform translate-x-full transition-transform duration-700 z-[3] overflow-hidden gap-y-14',
                     'flex flex-col lg:justify-center py-10',
                     { 'translate-x-0': isMenuOpen },
                 )}
@@ -91,7 +91,7 @@ const Navbar = () => {
                     )}
                 ></div>
 
-                <div className="grow flex md:items-center w-full max-w-[300px] mx-8 sm:mx-auto">
+                {/* <div className="grow flex md:items-center w-full max-w-[300px] mx-8 sm:mx-auto">
                     <div className="flex gap-10 lg:justify-between max-lg:flex-col w-full">
                         <div className="max-lg:order-2">
                             <p className="text-muted-foreground mb-5 md:mb-8">
@@ -99,16 +99,6 @@ const Navbar = () => {
                             </p>
                             <ul className="space-y-3">
                                 {SOCIAL_LINKS.map((link) => (
-                                    // <li key={link.name}>
-                                    //     <a
-                                    //         href={link.url}
-                                    //         target="_blank"
-                                    //         rel="noreferrer"
-                                    //         className="text-lg capitalize hover:underline"
-                                    //     >
-                                    //         {link.name}
-                                    //     </a>
-                                    // </li>
                                     <li
                                         key={link.name}
                                         className="overflow-hidden"
@@ -124,7 +114,10 @@ const Navbar = () => {
                                             </span>
 
                                             <span className="absolute left-0 top-full block capitalize text-primary transition-all duration-300 group-hover:top-0">
-                                                {link.name.charAt(0).toUpperCase() + link.name.slice(1)}
+                                                {link.name
+                                                    .charAt(0)
+                                                    .toUpperCase() +
+                                                    link.name.slice(1)}
                                             </span>
                                         </a>
                                     </li>
@@ -156,6 +149,76 @@ const Navbar = () => {
                                                     className="scale-0 group-hover:scale-100 transition-all"
                                                 />
                                             </span>
+                                            {link.name}
+                                        </button>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div> */}
+                <div className="grow flex md:items-center w-full max-w-[500px] mx-8 sm:mx-auto">
+                    <div className="flex gap-16 lg:justify-between max-lg:flex-col w-full">
+                        <div className="max-lg:order-2">
+                            <p className="text-muted-foreground mb-5 md:mb-8 text-lg sm:text-xl tracking-wider">
+                                SOCIAL
+                            </p>
+
+                            <ul className="space-y-6">
+                                {SOCIAL_LINKS.map((link) => (
+                                    <li
+                                        key={link.name}
+                                        className="overflow-hidden"
+                                    >
+                                        <a
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            className="group relative inline-block h-12 sm:h-14 lg:h-16 overflow-hidden text-4xl sm:text-5xl lg:text-6xl"
+                                        >
+                                            <span className="block capitalize transition-all duration-300 group-hover:-translate-y-full group-hover:text-primary">
+                                                {link.name}
+                                            </span>
+
+                                            <span className="absolute left-0 top-full block capitalize text-primary transition-all duration-300 group-hover:top-0">
+                                                {link.name
+                                                    .charAt(0)
+                                                    .toUpperCase() +
+                                                    link.name.slice(1)}
+                                            </span>
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div>
+                            <p className="text-muted-foreground mb-5 md:mb-8 text-lg sm:text-xl tracking-wider">
+                                MENU
+                            </p>
+
+                            <ul className="space-y-6">
+                                {MENU_LINKS.map((link, idx) => (
+                                    <li key={link.name}>
+                                        <button
+                                            onClick={() => {
+                                                router.push(link.url);
+                                                setIsMenuOpen(false);
+                                            }}
+                                            className="group text-4xl sm:text-5xl lg:text-6xl flex items-center gap-5"
+                                        >
+                                            <span
+                                                className={cn(
+                                                    'size-5 sm:size-6 bg-white/20 rounded-full flex items-center justify-center group-hover:scale-[200%] transition-all duration-300',
+                                                    COLORS[idx],
+                                                )}
+                                            >
+                                                <MoveUpRight
+                                                    size={14}
+                                                    className="scale-0 group-hover:scale-100 transition-all duration-300"
+                                                />
+                                            </span>
+
                                             {link.name}
                                         </button>
                                     </li>
