@@ -35,63 +35,96 @@ const Banner = () => {
     );
 
     return (
-        <section className="relative overflow-hidden" id="banner">
+        <section
+            className="relative overflow-hidden pt-14 md:pt-28 pb-14 lg:py-0"
+            id="banner"
+        >
             <ArrowAnimation />
+
             <div
-                className="container h-[100svh] min-h-[530px] max-md:pb-10 flex justify-between items-center max-md:flex-col"
+                className="container min-h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-14 lg:gap-20"
                 ref={containerRef}
             >
-                <div className="max-md:grow max-md:flex flex-col justify-center items-start max-w-[544px]">
-                    <h1 className="banner-title slide-up-and-fade leading-[.95] text-6xl sm:text-[80px] font-anton">
-                        <span className="text-primary">FRONTEND</span>
-                        <br /> <span className="ml-4">DEVELOPER</span>
+                {/* LEFT CONTENT */}
+                <div className="max-w-[620px] w-full text-center lg:text-left">
+                    <h1 className="banner-title slide-up-and-fade leading-[0.9] text-5xl sm:text-7xl lg:text-[90px] font-bebas tracking-wide">
+                        <span className="text-primary">CREATIVE</span>
+                        <br />
+                        <span className="text-white">DEVELOPER</span>
                     </h1>
-                    <p className="banner-description slide-up-and-fade mt-6 text-lg text-muted-foreground">
-                        Hi! I&apos;m{' '}
-                        <span className="font-medium text-foreground">
-                            Tajmirul
-                        </span>
-                        . A creative Frontend Developer with 3+ years of
-                        experience in building high-performance, scalable, and
-                        responsive web solutions.
+
+                    <p className="banner-description slide-up-and-fade mt-6 text-base sm:text-lg leading-7 text-muted-foreground max-w-[520px] mx-auto lg:mx-0">
+                        Building premium modern web experiences with clean UI,
+                        smooth motion, and performance-focused development.
                     </p>
+
                     <Button
                         as="link"
                         target="_blank"
                         rel="noopener noreferrer"
                         href={GENERAL_INFO.upworkProfile}
                         variant="primary"
-                        className="mt-9 banner-button slide-up-and-fade"
+                        className="mt-8 banner-button slide-up-and-fade"
                     >
                         Let&apos;s Talk
                     </Button>
 
-                    <div className="flex items-center gap-2 mt-3">
-                        <span className="size-3 rounded-full bg-white"></span>
+                    <div className="flex items-center justify-center lg:justify-start gap-2 mt-5">
+                        <span className="size-3 rounded-full bg-primary animate-pulse"></span>
+
                         <span className="text-sm text-muted-foreground">
                             Available for full-time opportunities
                         </span>
                     </div>
+
+                    {/* SOCIALS */}
+                    <div className="flex items-center justify-center lg:justify-start gap-5 mt-8">
+                        <a
+                            href="YOUR_GITHUB_LINK"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group transition-all duration-300"
+                        >
+                            <FaGithub className="text-3xl text-white transition-all duration-300 group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.35)]" />
+                        </a>
+
+                        <a
+                            href="YOUR_LINKEDIN_LINK"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group transition-all duration-300"
+                        >
+                            <FaLinkedin className="text-3xl text-white transition-all duration-300 group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.35)]" />
+                        </a>
+                    </div>
                 </div>
 
-                <div className="md:absolute bottom-[10%] right-[4%] flex md:flex-col gap-4 md:gap-8 text-center md:text-right">
-                    <a
-                        href="YOUR_GITHUB_LINK"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="slide-up-and-fade group transition-all duration-300"
-                    >
-                        <FaGithub className="text-3xl sm:text-4xl text-white transition-all duration-300 group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_10px_rgba(0,255,255,0.7)]" />
-                    </a>
+                {/* RIGHT IMAGE */}
+                <div className="relative flex items-center justify-center">
+                    {/* GLOW */}
+                    <div className="absolute h-[260px] w-[260px] sm:h-[320px] sm:w-[320px] rounded-full bg-cyan-400/20 blur-[100px]" />
 
-                    <a
-                        href="YOUR_LINKEDIN_LINK"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="slide-up-and-fade group transition-all duration-300"
-                    >
-                        <FaLinkedin className="text-3xl sm:text-4xl text-white transition-all duration-300 group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_10px_rgba(0,255,255,0.7)]" />
-                    </a>
+                    {/* IMAGE */}
+                    <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_50px_rgba(0,255,255,0.08)]">
+                        <img
+                            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
+                            alt="Profile"
+                            className="h-[380px] w-[260px] sm:h-[480px] sm:w-[340px] object-cover grayscale contrast-110 brightness-90"
+                        />
+
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                    </div>
+
+                    {/* FLOATING CARD */}
+                    <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 lg:left-[-30px] lg:translate-x-0 rounded-2xl border border-white/10 bg-black/70 px-4 py-3 backdrop-blur-xl">
+                        <p className="text-xs text-muted-foreground">
+                            Based in India
+                        </p>
+
+                        <h3 className="text-lg text-white font-semibold">
+                            Frontend Developer
+                        </h3>
+                    </div>
                 </div>
             </div>
         </section>
