@@ -33,52 +33,42 @@ export interface ITechStack {
 }
 
 export const GENERAL_INFO = {
-    email: 'tasmirolislam@gmail.com',
+    email: 'rohan.shikhare.work@gmail.com',
     emailSubject: "Let's collaborate on a project",
-    emailBody: 'Hi Tajmirul, I am reaching out to you because...',
-    oldPortfolio: 'https://www.legacy.me.toinfinite.dev',
-    upworkProfile: 'https://www.upwork.com/freelancers/tajmirul',
-    location: 'Bangladesh',
+    emailBody: 'Hi Rohan, I am reaching out to you because...',
+    location: 'India',
+    resume: 'https://drive.google.com/file/d/1QDwAUayssFEQIidJqTH4XkzuNoqQBsIH/view?usp=drive_link',
 };
 
 export const MY_STACK: ITechStack[] = [
-    // Programming Languages
+    
     { name: 'Java', icon: SiOpenjdk, color: '#007396' },
     { name: 'Python', icon: SiPython, color: '#3776AB' },
-    { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
-    { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
-    { name: 'PHP', icon: SiPhp, color: '#777BB4' },
-
-    // Frontend
     { name: 'HTML', icon: SiHtml5, color: '#E34C26' },
+    { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
     { name: 'React', icon: SiReact, color: '#61DAFB' },
     { name: 'Next.js', icon: SiNextdotjs, color: '#000000' },
+    { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
     { name: 'Angular', icon: SiAngular, color: '#DD0031' },
     { name: 'CSS', icon: SiCss, color: '#1572B6' },
     { name: 'SCSS', icon: SiSass, color: '#C69' },
     { name: 'Bootstrap', icon: SiBootstrap, color: '#7952B3' },
     { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
-
-    // Backend & Database
     { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
     { name: 'MongoDB', icon: SiMongodb, color: '#13AA52' },
+    { name: 'PHP', icon: SiPhp, color: '#777BB4' },
     { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
-
-    // Mobile Development
     { name: 'Android Studio', icon: SiAndroidstudio, color: '#3DDC84' },
     { name: 'React Native', icon: FaReact, color: '#61DAFB' },
     { name: 'Flutter', icon: SiFlutter, color: '#02569B' },
-
-    // Tools & Platforms
     { name: 'GitHub', icon: SiGithub, color: '#181717' },
     { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
     { name: 'Linux', icon: SiLinux, color: '#FCC624' },
 ];
 
 export const SOCIAL_LINKS = [
-    { name: 'github', url: 'https://github.com/Tajmirul' },
-    { name: 'linkedin', url: 'https://www.linkedin.com/in/tajmirul' },
-    { name: 'facebook', url: 'https://www.facebook.com/tajmirul.2000' },
+    { name: 'github', url: 'https://github.com/RohanShikhare' },
+    { name: 'linkedin', url: 'https://www.linkedin.com/in/rohan-shikhare' },
 ];
 
 export const PROJECTS: IProject[] = [
@@ -257,25 +247,4 @@ export const PROJECTS: IProject[] = [
     },
 ];
 
-export const MY_EXPERIENCE = [
-    {
-        title: 'Software Engineer (Frontend)',
-        company: 'Strativ AB',
-        duration: 'Dec 2024 - Present',
-    },
-    {
-        title: 'Frontend Developer',
-        company: 'Epikcoders',
-        duration: 'Oct 2023 - Nov 2024',
-    },
-    {
-        title: 'Frontend Engineer',
-        company: 'Anchorblock Technology',
-        duration: 'Oct 2022 - Sep 2023',
-    },
-    {
-        title: 'Frontend Developer (Part-time)',
-        company: 'Branex IT',
-        duration: 'Jan 2022 - Oct 2022',
-    },
-];
+

@@ -9,32 +9,39 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const timelineEntries = [
     {
-        title: 'Learning Something New',
-        subtitle: 'Self-Development',
-        year: 'NOW',
+        title: 'Freelance Web Developer',
+        subtitle: 'Self Employed',
+        year: '2024 - Present',
         description:
-            'Continuously exploring emerging technologies, researching advanced AI systems, and pushing the boundaries of what’s possible in tech.',
+            'Building responsive web applications using React.js, Next.js, Tailwind CSS, and modern frontend technologies.',
     },
     {
-        title: 'AI Engineer',
-        subtitle: 'Freelance & Projects',
-        year: '2025',
-        description:
-            'Developing intelligent AI systems, chatbots, and machine learning solutions. Building next-gen conversational AI agents and JARVIS-like personal assistants.',
-    },
-    {
-        title: 'Full-Stack Developer',
-        subtitle: 'Product & Growth',
+        title: 'Frontend Developer Intern',
+        subtitle: 'Version Next Technologies Pvt. Ltd.',
         year: '2024',
         description:
-            'Built complete web applications from frontend to backend. Developed responsive UIs, RESTful APIs, and database solutions for various clients and projects.',
+            'Developed responsive user interfaces and optimized frontend performance using React.js and JavaScript.',
     },
     {
-        title: 'Frontend Developer',
-        subtitle: 'Enterprise & Team',
-        year: '2023',
+        title: 'BE in Information Technology',
+        subtitle: 'PVPPCOE Mumbai',
+        year: '2024 - Present',
         description:
-            'Shipped polished user experiences with modern frontend architecture, performance optimization, and strong UX-driven interactions.',
+            'Pursuing Information Technology engineering with an 8.17 CGPA focused on full-stack and AI development.',
+    },
+    {
+        title: 'Diploma in Information Technology',
+        subtitle: 'Government Polytechnic Mumbai',
+        year: '2022 - 2024',
+        description:
+            'Graduated with 86.33% marks with strong foundations in web development, Java, and databases.',
+    },
+    {
+        title: 'SSC',
+        subtitle: 'Our Lady Of Good Counsel High School',
+        year: '2021',
+        description:
+            'Completed secondary education with 75% marks and strong academic fundamentals.',
     },
 ];
 
@@ -149,12 +156,9 @@ const Experiences = () => {
             className="py-section text-white overflow-hidden"
             id="my-experience"
         >
-            <div
-                className="container relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
-                ref={containerRef}
-            >
+            <div className="container relative " ref={containerRef}>
                 <SectionTitle
-                    title="Career & Experience"
+                    title="Journey So Far"
                     classNames={{ title: 'text-2xl sm:text-3xl' }}
                 />
 
@@ -197,7 +201,7 @@ const Experiences = () => {
                                     <div className="md:hidden pl-14 sm:pl-16">
                                         <div className="flex items-start gap-3 sm:gap-4">
                                             <div className="flex flex-col items-center flex-shrink-0">
-                                                <span className="mb-6 text-lg sm:text-2xl uppercase tracking-[0.2em] text-cyan-300">
+                                                <span className="mb-6 text-base sm:text-lg uppercase tracking-[0.2em] text-cyan-300">
                                                     {entry.year}
                                                 </span>
                                             </div>
@@ -220,23 +224,44 @@ const Experiences = () => {
                                         </div>
                                     </div>
 
-                                    <div className="hidden md:grid md:grid-cols-[1fr_auto_1.4fr] md:items-start md:gap-10">
+                                    {/* <div className="hidden md:grid md:grid-cols-[1fr_auto_1.4fr] md:items-start md:gap-10">
                                         <div className="space-y-2">
                                             <p className="text-lg leading-tight text-white">
                                                 {entry.title}
                                             </p>
-                                            <p className="text-xs uppercase tracking-[0.25em] text-cyan-300/70">
+                                            <p className="text-base uppercase tracking-[0.25em] text-cyan-300/70">
                                                 {entry.subtitle}
                                             </p>
                                         </div>
 
                                         <div className="relative flex flex-col items-center gap-8 flex-shrink-0">
-                                            <span className="text-2xl sm:text-3xl uppercase tracking-[0.2em] text-slate-100">
+                                            <span className="text-base sm:text-3xl uppercase tracking-[0.2em] text-slate-100">
                                                 {entry.year}
                                             </span>
                                         </div>
 
                                         <div className="text-sm leading-7 text-slate-300">
+                                            {entry.description}
+                                        </div>
+                                    </div> */}
+                                    <div className="hidden md:grid md:grid-cols-[1fr_auto_1.4fr] md:items-start md:gap-10">
+                                        <div className="space-y-2">
+                                            <p className="text-2xl leading-tight text-white">
+                                                {entry.title}
+                                            </p>
+
+                                            <p className="text-xl leading-tight text-cyan-300/70">
+                                                {entry.subtitle}
+                                            </p>
+                                        </div>
+
+                                        <div className="relative flex flex-col items-center gap-8 flex-shrink-0">
+                                            <span className="text-xl leading-tight text-slate-100">
+                                                {entry.year}
+                                            </span>
+                                        </div>
+
+                                        <div className="text-xl leading-tight text-slate-300">
                                             {entry.description}
                                         </div>
                                     </div>

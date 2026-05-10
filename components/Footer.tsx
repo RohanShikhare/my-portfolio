@@ -26,7 +26,7 @@ const Footer = () => {
                 {/* Title Section */}
                 <div className="mb-12 sm:mb-16 lg:mb-20">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight group hover:opacity-80 transition-opacity duration-300 cursor-default">
-                        Tajmirul Islam
+                        Rohan Shikhare
                     </h2>
                 </div>
 
@@ -125,7 +125,7 @@ const Footer = () => {
                 {/* Bottom Divider */}
                 <div className="mt-16 sm:mt-20 pt-8 sm:pt-12 border-t border-muted/10">
                     <p className="text-base sm:text-sm text-muted-foreground text-center sm:text-left">
-                        © 2026 Tajmirul Islam. All rights reserved.
+                        © {new Date().getFullYear()} Rohan Shikhare. All rights reserved.
                     </p>
                 </div>
             </div>

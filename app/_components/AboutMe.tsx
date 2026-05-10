@@ -54,12 +54,11 @@ const AboutMe = () => {
     return (
         <section className="pb-section" id="about-me">
             <div className="container" ref={container}>
-                <h2 className="text-4xl md:text-6xl font-thin mt-20 slide-up-and-fade">
-                    I believe in a user centered design approach, ensuring that
-                    every project I work on is tailored to meet the specific
-                    needs of its users.
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-thin mt-20 slide-up-and-fade leading-tight">
+                    Full Stack Developer creating scalable web applications,
+                    responsive interfaces, and performance-focused digital
+                    experiences using modern frontend and backend technologies.
                 </h2>
-
             </div>
         </section>
     );

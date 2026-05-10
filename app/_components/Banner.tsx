@@ -1,12 +1,13 @@
 'use client';
 import ArrowAnimation from '@/components/ArrowAnimation';
 import Button from '@/components/Button';
-import { GENERAL_INFO } from '@/lib/data';
+import { GENERAL_INFO, SOCIAL_LINKS } from '@/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import React from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import ProfileImage from '../../public/mebutnotme.png';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -48,21 +49,20 @@ const Banner = () => {
                 {/* LEFT CONTENT */}
                 <div className="max-w-[620px] w-full text-center lg:text-left">
                     <h1 className="banner-title slide-up-and-fade leading-[0.9] text-5xl sm:text-7xl lg:text-[90px] font-bebas tracking-wide">
-                        <span className="text-primary">CREATIVE</span>
+                        <span className="text-primary">FULL STACK</span>
                         <br />
                         <span className="text-white">DEVELOPER</span>
                     </h1>
 
                     <p className="banner-description slide-up-and-fade mt-6 text-base sm:text-lg leading-7 text-muted-foreground max-w-[520px] mx-auto lg:mx-0">
-                        Building premium modern web experiences with clean UI,
-                        smooth motion, and performance-focused development.
+                        Full Stack Developer specializing in modern web applications, responsive UI/UX design, scalable frontend architecture, and high-performance digital experiences.
                     </p>
 
                     <Button
                         as="link"
                         target="_blank"
                         rel="noopener noreferrer"
-                        href={GENERAL_INFO.upworkProfile}
+                        href={`mailto:${GENERAL_INFO.email}?subject=${GENERAL_INFO.emailSubject}&body=${encodeURIComponent(GENERAL_INFO.emailBody)}`}
                         variant="primary"
                         className="mt-8 banner-button slide-up-and-fade"
                     >
@@ -80,7 +80,7 @@ const Banner = () => {
                     {/* SOCIALS */}
                     <div className="flex items-center justify-center lg:justify-start gap-5 mt-8">
                         <a
-                            href="YOUR_GITHUB_LINK"
+                            href={SOCIAL_LINKS.find(link => link.name === 'github')?.url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group transition-all duration-300"
@@ -89,7 +89,7 @@ const Banner = () => {
                         </a>
 
                         <a
-                            href="YOUR_LINKEDIN_LINK"
+                            href={SOCIAL_LINKS.find(link => link.name === 'linkedin')?.url}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group transition-all duration-300"
@@ -107,7 +107,7 @@ const Banner = () => {
                     {/* IMAGE */}
                     <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_50px_rgba(0,255,255,0.08)]">
                         <img
-                            src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1200&auto=format&fit=crop"
+                            src={ProfileImage.src}
                             alt="Profile"
                             className="h-[380px] w-[260px] sm:h-[480px] sm:w-[340px] object-cover grayscale contrast-110 brightness-90"
                         />
@@ -121,8 +121,8 @@ const Banner = () => {
                             Based in India
                         </p>
 
-                        <h3 className="text-lg text-white font-semibold">
-                            Frontend Developer
+                        <h3 className="text-lg text-white">
+                            Full Stack Developer
                         </h3>
                     </div>
                 </div>

@@ -27,8 +27,8 @@ const italianno = Italianno({
 });
 
 export const metadata: Metadata = {
-    title: 'Portfolio - Tajmirul Islam',
-    description: 'Personal portfolio of Tajmirul Islam',
+    title: 'Portfolio - Rohan Shikhare',
+    description: 'Personal portfolio of Rohan Shikhare',
 };
 
 export default function RootLayout({

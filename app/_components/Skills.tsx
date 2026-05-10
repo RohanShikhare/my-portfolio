@@ -79,10 +79,10 @@ const Skills = () => {
 
     return (
         <section id="my-stack" ref={containerRef} className="overflow-hidden">
-            <div className="container max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 xl:px-8">
+            <div className="container">
                 <SectionTitle title="My Stack" />
 
-                <div className="flex flex-col items-center gap-2 sm:gap-3 md:gap-4 overflow-hidden">
+                <div className="flex flex-col items-center gap-2 sm:gap-3 md:gap-4 overflow-hidden" style={{padding:'20px 0'}} >
                     {triangleRows.map((row, rowIndex) => (
                         <div
                             key={rowIndex}
