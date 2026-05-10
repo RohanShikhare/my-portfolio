@@ -99,14 +99,33 @@ const Navbar = () => {
                             </p>
                             <ul className="space-y-3">
                                 {SOCIAL_LINKS.map((link) => (
-                                    <li key={link.name}>
+                                    // <li key={link.name}>
+                                    //     <a
+                                    //         href={link.url}
+                                    //         target="_blank"
+                                    //         rel="noreferrer"
+                                    //         className="text-lg capitalize hover:underline"
+                                    //     >
+                                    //         {link.name}
+                                    //     </a>
+                                    // </li>
+                                    <li
+                                        key={link.name}
+                                        className="overflow-hidden"
+                                    >
                                         <a
                                             href={link.url}
                                             target="_blank"
                                             rel="noreferrer"
-                                            className="text-lg capitalize hover:underline"
+                                            className="group relative inline-block h-7 overflow-hidden text-lg capitalize"
                                         >
-                                            {link.name}
+                                            <span className="block capitalize transition-all duration-300 group-hover:-translate-y-full group-hover:text-primary">
+                                                {link.name}
+                                            </span>
+
+                                            <span className="absolute left-0 top-full block capitalize text-primary transition-all duration-300 group-hover:top-0">
+                                                {link.name.charAt(0).toUpperCase() + link.name.slice(1)}
+                                            </span>
                                         </a>
                                     </li>
                                 ))}

@@ -74,14 +74,22 @@ const Footer = () => {
                             {SOCIAL_LINKS.map((link) => (
                                 <li
                                     key={link.name}
-                                    onMouseEnter={() => handleSocialHover(link.name, true)}
-                                    onMouseLeave={() => handleSocialHover(link.name, false)}
+                                    onMouseEnter={() =>
+                                        handleSocialHover(link.name, true)
+                                    }
+                                    onMouseLeave={() =>
+                                        handleSocialHover(link.name, false)
+                                    }
                                 >
                                     <a
                                         href={link.url}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="group/link flex items-center gap-2 text-xl sm:text-xl capitalize transition-all duration-300"
+                                        className={`group/link flex items-center gap-2 text-xl sm:text-xl capitalize transition-all duration-300 ${
+                                            hoveredLinks[link.name]
+                                                ? 'text-primary'
+                                                : 'text-foreground'
+                                        }`}
                                     >
                                         {/* Animated underline */}
                                         <span className="relative pb-1">

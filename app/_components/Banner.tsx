@@ -6,6 +6,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import React from 'react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -73,29 +74,25 @@ const Banner = () => {
                     </div>
                 </div>
 
+               
                 <div className="md:absolute bottom-[10%] right-[4%] flex md:flex-col gap-4 md:gap-8 text-center md:text-right">
-                    <div className="slide-up-and-fade">
-                        <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            3+
-                        </h5>
-                        <p className="text-muted-foreground">
-                            Years of Experience
-                        </p>
-                    </div>
-                    <div className="slide-up-and-fade">
-                        <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            7+
-                        </h5>
-                        <p className="text-muted-foreground">
-                            Completed Projects
-                        </p>
-                    </div>
-                    <div className="slide-up-and-fade">
-                        <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            10K+
-                        </h5>
-                        <p className="text-muted-foreground">Hours Worked</p>
-                    </div>
+                    <a
+                        href="YOUR_GITHUB_LINK"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="slide-up-and-fade group transition-all duration-300"
+                    >
+                        <FaGithub className="text-3xl sm:text-4xl text-white transition-all duration-300 group-hover:text-green-400 group-hover:drop-shadow-[0_0_10px_rgba(74,222,128,0.8)]" />
+                    </a>
+
+                    <a
+                        href="YOUR_LINKEDIN_LINK"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="slide-up-and-fade group transition-all duration-300"
+                    >
+                        <FaLinkedin className="text-3xl sm:text-4xl text-white transition-all duration-300 group-hover:text-green-400 group-hover:drop-shadow-[0_0_10px_rgba(74,222,128,0.8)]" />
+                    </a>
                 </div>
             </div>
         </section>
