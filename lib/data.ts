@@ -43,21 +43,21 @@ export const GENERAL_INFO = {
 
 export const MY_STACK: ITechStack[] = [
     // Programming Languages
+    { name: 'Java', icon: SiOpenjdk, color: '#007396' },
+    { name: 'Python', icon: SiPython, color: '#3776AB' },
     { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E' },
     { name: 'TypeScript', icon: SiTypescript, color: '#3178C6' },
     { name: 'PHP', icon: SiPhp, color: '#777BB4' },
-    { name: 'Java', icon: SiOpenjdk, color: '#007396' },
-    { name: 'Python', icon: SiPython, color: '#3776AB' },
 
     // Frontend
     { name: 'HTML', icon: SiHtml5, color: '#E34C26' },
+    { name: 'React', icon: SiReact, color: '#61DAFB' },
+    { name: 'Next.js', icon: SiNextdotjs, color: '#000000' },
+    { name: 'Angular', icon: SiAngular, color: '#DD0031' },
     { name: 'CSS', icon: SiCss, color: '#1572B6' },
     { name: 'SCSS', icon: SiSass, color: '#C69' },
     { name: 'Bootstrap', icon: SiBootstrap, color: '#7952B3' },
     { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
-    { name: 'React', icon: SiReact, color: '#61DAFB' },
-    { name: 'Next.js', icon: SiNextdotjs, color: '#000000' },
-    { name: 'Angular', icon: SiAngular, color: '#DD0031' },
 
     // Backend & Database
     { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
@@ -70,8 +70,8 @@ export const MY_STACK: ITechStack[] = [
     { name: 'Flutter', icon: SiFlutter, color: '#02569B' },
 
     // Tools & Platforms
-    { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
     { name: 'GitHub', icon: SiGithub, color: '#181717' },
+    { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
     { name: 'Linux', icon: SiLinux, color: '#FCC624' },
 ];
 

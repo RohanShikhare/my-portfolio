@@ -36,12 +36,12 @@ const Footer = () => {
                     <div className="space-y-6">
                         {/* Email */}
                         <div className="space-y-2">
-                            <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                            <p className="text-base uppercase tracking-widest text-muted-foreground">
                                 Email
                             </p>
                             <a
                                 href={`mailto:${GENERAL_INFO.email}`}
-                                className="group/email flex items-center gap-2 text-sm sm:text-base transition-all duration-300 hover:text-primary"
+                                className="group/email flex items-center gap-2 text-xl sm:text-xl transition-all duration-300 hover:text-primary"
                             >
                                 <Mail className="w-4 h-4 flex-shrink-0 opacity-60 group-hover/email:opacity-100 transition-opacity" />
                                 <span className="break-all hover:underline">
@@ -52,10 +52,10 @@ const Footer = () => {
 
                         {/* Location */}
                         <div className="space-y-2">
-                            <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                            <p className="text-base uppercase tracking-widest text-muted-foreground">
                                 Location
                             </p>
-                            <div className="flex items-center gap-2 text-sm sm:text-base">
+                            <div className="flex items-center gap-2 text-xl sm:text-xl">
                                 <MapPin className="w-4 h-4 flex-shrink-0 opacity-60" />
                                 <span>{GENERAL_INFO.location}</span>
                             </div>
@@ -67,7 +67,7 @@ const Footer = () => {
 
                     {/* Right Section - Social Links */}
                     <div className="space-y-3 sm:space-y-4">
-                        <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6">
+                        <p className="text-base uppercase tracking-widest text-muted-foreground mb-6">
                             Connect
                         </p>
                         <ul className="space-y-3">
@@ -81,7 +81,7 @@ const Footer = () => {
                                         href={link.url}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className="group/link flex items-center gap-2 text-sm sm:text-base capitalize transition-all duration-300"
+                                        className="group/link flex items-center gap-2 text-xl sm:text-xl capitalize transition-all duration-300"
                                     >
                                         {/* Animated underline */}
                                         <span className="relative pb-1">
@@ -116,7 +116,7 @@ const Footer = () => {
 
                 {/* Bottom Divider */}
                 <div className="mt-16 sm:mt-20 pt-8 sm:pt-12 border-t border-muted/10">
-                    <p className="text-xs sm:text-sm text-muted-foreground text-center sm:text-left">
+                    <p className="text-base sm:text-sm text-muted-foreground text-center sm:text-left">
                         © 2026 Tajmirul Islam. All rights reserved.
                     </p>
                 </div>
