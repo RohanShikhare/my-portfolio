@@ -49,7 +49,7 @@ const Banner = () => {
                 {/* LEFT CONTENT */}
                 <div className="max-w-[620px] w-full text-center lg:text-left">
                     <h1 className="banner-title slide-up-and-fade leading-[0.9] text-5xl sm:text-7xl lg:text-[90px] font-bebas tracking-wide">
-                        <span className="text-primary">FULL STACK</span>
+                        <span className="text-primary font-italiana">FULL STACK</span>
                         <br />
                         <span className="text-white">DEVELOPER</span>
                     </h1>
@@ -64,7 +64,7 @@ const Banner = () => {
                         rel="noopener noreferrer"
                         href={`mailto:${GENERAL_INFO.email}?subject=${GENERAL_INFO.emailSubject}&body=${encodeURIComponent(GENERAL_INFO.emailBody)}`}
                         variant="primary"
-                        className="mt-8 banner-button slide-up-and-fade"
+                        className="mt-8 banner-button slide-up-and-fade "
                     >
                         Let&apos;s Talk
                     </Button>

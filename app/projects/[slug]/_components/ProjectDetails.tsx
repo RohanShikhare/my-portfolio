@@ -102,7 +102,7 @@ const ProjectDetails = ({ project }: Props) => {
                 >
                     <div className="relative w-full">
                         <div className="flex items-start gap-6 mx-auto mb-10 max-w-[635px]">
-                            <h1 className="fade-in-later opacity-0 text-4xl md:text-[60px] leading-none font-anton overflow-hidden">
+                            <h1 className="fade-in-later opacity-0 text-4xl md:text-[60px] leading-none  overflow-hidden">
                                 <span className="inline-block">
                                     {project.title}
                                 </span>
@@ -134,14 +134,14 @@ const ProjectDetails = ({ project }: Props) => {
 
                         <div className="max-w-[635px] space-y-7 pb-20 mx-auto">
                             <div className="fade-in-later">
-                                <p className="text-muted-foreground font-anton mb-3">
+                                <p className="font-italiana font-semibold mb-3">
                                     Year
                                 </p>
 
                                 <div className="text-lg">{project.year}</div>
                             </div>
                             <div className="fade-in-later">
-                                <p className="text-muted-foreground font-anton mb-3">
+                                <p className="font-italiana font-semibold mb-3">
                                     Tech & Technique
                                 </p>
 
@@ -150,7 +150,7 @@ const ProjectDetails = ({ project }: Props) => {
                                 </div>
                             </div>
                             <div className="fade-in-later">
-                                <p className="text-muted-foreground font-anton mb-3">
+                                <p className="font-italiana font-semibold mb-3">
                                     Description
                                 </p>
 
@@ -160,7 +160,7 @@ const ProjectDetails = ({ project }: Props) => {
                             </div>
                             {project.role && (
                                 <div className="fade-in-later">
-                                    <p className="text-muted-foreground font-anton mb-3">
+                                    <p className="font-italiana font-semibold mb-3">
                                         My Role
                                     </p>
 

@@ -79,7 +79,7 @@ export const PROJECTS: IProject[] = [
         description: `
     Official website developed for ISPL-T10, a popular Indian cricket league featuring multiple state teams along with participation from well-known actors, celebrities, and professional cricketers. <br/><br/>
 
-    Key Features:<br/>
+    <span class="font-italiana font-semibold">Key Features:</span><br/>
     <ul>
         <li>🏏 Dynamic League Platform: Showcased teams, players, fixtures, and league information</li>
         <li>🎬 Celebrity & Cricket Integration: Highlighted participation of actors and cricket personalities</li>
@@ -88,7 +88,7 @@ export const PROJECTS: IProject[] = [
         <li>🔥 Performance-Focused Frontend: Fast loading and optimized React-based architecture</li>
     </ul><br/>
 
-    Technical Highlights:
+    <span class="font-italiana font-semibold">Technical Highlights:</span>
     <ul>
         <li>Built responsive frontend architecture using React.js</li>
         <li>Implemented interactive carousels and media sections using React Slick</li>

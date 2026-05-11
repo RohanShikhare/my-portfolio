@@ -25,7 +25,7 @@ const Footer = () => {
             <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Title Section */}
                 <div className="mb-12 sm:mb-16 lg:mb-20">
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight group hover:opacity-80 transition-opacity duration-300 cursor-default">
+                    <h2 className="text-3xl font-italiana sm:text-4xl lg:text-5xl font-bold tracking-tight group hover:opacity-80 transition-opacity duration-300 cursor-default">
                         Rohan Shikhare
                     </h2>
                 </div>
@@ -93,7 +93,7 @@ const Footer = () => {
                                     >
                                         {/* Animated underline */}
                                         <span className="relative pb-1">
-                                            <span className="relative z-10">
+                                            <span className="relative">
                                                 {link.name}
                                             </span>
                                             <span

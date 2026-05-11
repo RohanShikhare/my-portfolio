@@ -160,11 +160,11 @@ const Navbar = () => {
                 <div className="grow flex md:items-center w-full max-w-[500px] mx-8 sm:mx-auto">
                     <div className="flex gap-16 lg:justify-between max-lg:flex-col w-full">
                         <div className="max-lg:order-2">
-                            <p className="text-muted-foreground mb-5 md:mb-8 text-lg sm:text-xl tracking-wider">
+                            <p className="text-muted-foreground font-italiana mb-5 md:mb-8 text-lg sm:text-xl tracking-wider">
                                 SOCIAL
                             </p>
 
-                            <ul className="space-y-6">
+                            <ul className="space-y-6 ">
                                 {SOCIAL_LINKS.map((link) => (
                                     <li
                                         key={link.name}
@@ -193,7 +193,7 @@ const Navbar = () => {
                         </div>
 
                         <div>
-                            <p className="text-muted-foreground mb-5 md:mb-8 text-lg sm:text-xl tracking-wider">
+                            <p className="text-muted-foreground font-italiana mb-5 md:mb-8 text-lg sm:text-xl tracking-wider">
                                 MENU
                             </p>
 

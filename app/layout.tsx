@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Bebas_Neue, Italianno } from 'next/font/google';
+import { Bebas_Neue, Italiana } from 'next/font/google';
 import { ReactLenis } from 'lenis/react';
 
 import 'lenis/dist/lenis.css';
@@ -20,10 +20,10 @@ const bebasNeue = Bebas_Neue({
     variable: '--font-bebas',
 });
 
-const italianno = Italianno({
+const italiana = Italiana({
     weight: '400',
     subsets: ['latin'],
-    variable: '--font-italianno',
+    variable: '--font-italiana',
 });
 
 export const metadata: Metadata = {
@@ -50,7 +50,7 @@ export default function RootLayout({
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`}
             </Script>
             <body
-                className={`${bebasNeue.variable} ${italianno.variable} antialiased bg-black font-[var(--font-bebas)]`}
+                className={`${bebasNeue.variable} ${italiana.variable} antialiased bg-black font-[var(--font-bebas)]`}
             >
                 <ReactLenis
                     root

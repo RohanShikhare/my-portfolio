@@ -62,7 +62,7 @@ export default {
             },
             fontFamily: {
                 bebas: ['var(--font-bebas)'],
-                italianno: ['var(--font-italianno)'],
+                italiana: ['var(--font-italiana)'],
             },
             padding: {
                 section: '250px',
