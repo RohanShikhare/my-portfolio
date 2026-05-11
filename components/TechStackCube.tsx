@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 
 interface TechStackCubeProps {
     name: string;
-    icon: React.ComponentType<{ className?: string }>;
+    icon: React.ElementType;
     color: string;
 }
 
