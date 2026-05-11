@@ -1,0 +1,21 @@
+{
+  "name": "Rohan Shikhare Portfolio",
+  "short_name": "Rohan Shikhare",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "description": "Portfolio website of Full Stack Developer Rohan Shikhare.",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
