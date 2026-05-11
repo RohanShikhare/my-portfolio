@@ -1,13 +1,12 @@
-import { NextResponse } from 'next/server';
+import type { MetadataRoute } from 'next';
 
-const siteUrl = 'https://rohan-shikhare-portfolio.vercel.app';
-
-export function GET() {
-    const body = `User-agent: *\nAllow: /\nSitemap: ${siteUrl}/sitemap.xml\nHost: ${siteUrl}\n`;
-    return new NextResponse(body, {
-        status: 200,
-        headers: {
-            'Content-Type': 'text/plain',
+export default function robots(): MetadataRoute.Robots {
+    return {
+        rules: {
+            userAgent: '*',
+            allow: '/',
         },
-    });
+        sitemap:
+            'https://rohan-shikhare-portfolio.vercel.app/sitemap.xml',
+    };
 }
