@@ -7,7 +7,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import React from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import ProfileImage from '../../public/mebutnotme.png';
+import ProfileImage from '../../public/mebutnotme.webp';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
