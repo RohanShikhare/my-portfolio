@@ -229,9 +229,13 @@ const Navbar = () => {
                 </div>
 
                 <div className="w-full max-w-[300px] mx-8 sm:mx-auto">
-                    <p className="text-muted-foreground mb-4">GET IN TOUCH</p>
+                    <p className="text-muted-foreground mb-0">GET IN TOUCH</p>
                     <a href={`mailto:${GENERAL_INFO.email}`}>
                         {GENERAL_INFO.email}
+                    </a>
+                    <br />
+                    <a href={GENERAL_INFO.resume} target="_blank" className="text-muted-foreground mb-2">
+                        RESUME
                     </a>
                 </div>
             </div>
