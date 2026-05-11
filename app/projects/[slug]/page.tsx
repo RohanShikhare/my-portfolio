@@ -24,7 +24,7 @@ export const generateMetadata = async ({
                 noindex: true,
                 nofollow: true,
             },
-        } as Metadata;
+        };
     }
 
     const title = `${project.title} - ${project.techStack
