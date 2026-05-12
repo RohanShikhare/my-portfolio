@@ -217,7 +217,7 @@ const Experiences = () => {
                                     <div className="flex flex-col gap-4">
                                         {/* Year Badge */}
                                         <div className="inline-flex w-fit">
-                                            <span className="text-sm sm:text-base font-italiana uppercase tracking-[0.15em] text-cyan-300/90 px-3 py-1 rounded bg-cyan-400/10 border border-cyan-400/20">
+                                            <span className="text-sm sm:text-base uppercase tracking-[0.15em] text-cyan-300/90 px-3 py-1 rounded bg-cyan-400/10 border border-cyan-400/20">
                                                 {entry.year}
                                             </span>
                                         </div>
@@ -263,7 +263,7 @@ const Experiences = () => {
 
                                     {/* Center Column - Year (Perfectly Centered) */}
                                     <div className="col-start-2 flex flex-col items-center justify-start">
-                                        <span className="text-base font-italiana uppercase tracking-[0.1em] text-slate-100 whitespace-nowrap">
+                                        <span className="text-base uppercase tracking-[0.1em] text-slate-100 whitespace-nowrap">
                                             {entry.year}
                                         </span>
                                     </div>
