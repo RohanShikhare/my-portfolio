@@ -100,7 +100,7 @@ const Banner = () => {
                 </div>
 
                 {/* RIGHT IMAGE */}
-                <div className="relative flex items-center justify-center">
+                <div className="relative z-[2] flex items-center justify-center">
                     {/* GLOW */}
                     <div className="absolute h-[260px] w-[260px] sm:h-[320px] sm:w-[320px] rounded-full bg-cyan-400/20 blur-[100px]" />
 
