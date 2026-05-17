@@ -37,7 +37,7 @@ const Banner = () => {
 
     return (
         <section
-            className="relative overflow-hidden pt-14 md:pt-28 pb-14 lg:py-0"
+            className="relative overflow-hidden pt-16 md:pt-28 pb-14 lg:py-0"
             id="banner"
         >
             <ArrowAnimation />

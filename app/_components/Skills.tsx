@@ -17,9 +17,26 @@ const Skills = () => {
         const rows: Array<Array<ITechStack>> = [];
         let currentIndex = 0;
 
-        // Define row sizes for inverted triangle (pointing down)
-        // Starting with fewer items at top, more at bottom
+        // Define row sizes for inverted triangle (tablet/desktop)
         const rowSizes = [3, 4, 5, 6, 4]; // Total: 22 items
+
+        rowSizes.forEach((size) => {
+            const row = MY_STACK.slice(currentIndex, currentIndex + size);
+            if (row.length > 0) {
+                rows.push(row);
+                currentIndex += size;
+            }
+        });
+
+        return rows;
+    }, []);
+
+    const octagonRows = useMemo(() => {
+        const rows: Array<Array<ITechStack>> = [];
+        let currentIndex = 0;
+
+        // Mobile-only arrangement uses a balanced octagon-inspired row pattern
+        const rowSizes = [4, 5, 4, 5, 4]; // Total: 22 items
 
         rowSizes.forEach((size) => {
             const row = MY_STACK.slice(currentIndex, currentIndex + size);
@@ -82,7 +99,7 @@ const Skills = () => {
             <div className="container">
                 <SectionTitle title="My Stack" />
 
-                <div className="flex flex-col items-center gap-2 sm:gap-3 md:gap-4 overflow-hidden" style={{padding:'20px 0'}} >
+                <div className="hidden md:flex flex-col items-center gap-2 sm:gap-3 md:gap-4 overflow-hidden" style={{ padding: '20px 0' }}>
                     {triangleRows.map((row, rowIndex) => (
                         <div
                             key={rowIndex}
@@ -98,8 +115,31 @@ const Skills = () => {
                                     data-tech-cube
                                     className="flex-shrink-0"
                                 >
-                                    <TechStackCube 
-                                        name={tech.name} 
+                                    <TechStackCube
+                                        name={tech.name}
+                                        icon={tech.icon}
+                                        color={tech.color}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+
+                <div className="flex flex-col items-center gap-3 overflow-hidden md:hidden px-4" style={{ padding: '20px 0' }}>
+                    {octagonRows.map((row, rowIndex) => (
+                        <div
+                            key={rowIndex}
+                            className="flex justify-center gap-2 flex-wrap w-full"
+                        >
+                            {row.map((tech, techIndex) => (
+                                <div
+                                    key={`${tech.name}-${techIndex}`}
+                                    data-tech-cube
+                                    className="flex-shrink-0"
+                                >
+                                    <TechStackCube
+                                        name={tech.name}
                                         icon={tech.icon}
                                         color={tech.color}
                                     />

@@ -19,7 +19,7 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({
         <div
             className={cn(
                 'group relative inline-flex flex-col items-center justify-center',
-                'w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 p-2 sm:p-3 rounded-lg',
+                'max-[360px]:w-16 max-[360px]:h-16 w-[4.25rem] h-[4.25rem] sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 p-2 sm:p-3 rounded-lg',
                 'bg-gradient-to-b from-muted/15 to-muted/5',
                 'border border-muted/40',
                 'transition-all duration-500 ease-out',
@@ -61,7 +61,7 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({
                 {/* Icon container */}
                 <div
                     className={cn(
-                        'relative w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 flex items-center justify-center flex-shrink-0',
+                        'relative w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 flex items-center justify-center flex-shrink-0',
                         'transition-all duration-500',
                         isHovered &&
                             'drop-shadow-[0_0_12px_rgba(0,194,111,0.7)]',
@@ -84,7 +84,7 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({
                 {/* Tech name */}
                 <span
                     className={cn(
-                        'text-[8px] sm:text-[10px] md:text-xs text-center px-1 leading-tight',
+                        'text-[10px] sm:text-[10px] md:text-xs text-center px-1 leading-tight',
                         'transition-all duration-500 line-clamp-2',
                         isHovered
                             ? 'text-foreground'
