@@ -55,3 +55,7 @@
         @apply pl-5 mt-2 list-disc;
     }
 }
+::selection {
+    background-color: #ffffff;
+    color: #000000;
+}
