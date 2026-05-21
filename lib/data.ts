@@ -37,7 +37,7 @@ export const GENERAL_INFO = {
     emailSubject: "Let's collaborate on a project",
     emailBody: 'Hi Rohan, I am reaching out to you because...',
     location: 'India',
-    resume: 'https://drive.google.com/file/d/1QDwAUayssFEQIidJqTH4XkzuNoqQBsIH/view?usp=drive_link',
+    resume: 'https://drive.google.com/file/d/1FQZxo5SG6RJXLF4oyn_25KsJ5dpUykQK/view?usp=drive_link',
 };
 
 export const MY_STACK: ITechStack[] = [
