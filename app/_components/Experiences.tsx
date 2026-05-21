@@ -15,13 +15,13 @@ interface TimelineEntry {
 }
 
 const timelineEntries: TimelineEntry[] = [
-    {
-        title: 'Freelance Web Developer',
-        subtitle: 'Self Employed',
-        year: '2024 - Present',
-        description:
-            'Building responsive web applications using React.js, Next.js, Tailwind CSS, and modern frontend technologies.',
-    },
+    // {
+    //     title: 'Freelance Web Developer',
+    //     subtitle: 'Self Employed',
+    //     year: '2024 - Present',
+    //     description:
+    //         'Building responsive web applications using React.js, Next.js, Tailwind CSS, and modern frontend technologies.',
+    // },
     {
         title: 'Frontend Developer Intern',
         subtitle: 'Version Next Technologies Pvt. Ltd.',
@@ -34,7 +34,7 @@ const timelineEntries: TimelineEntry[] = [
         subtitle: 'PVPPCOE Mumbai',
         year: '2024 - Present',
         description:
-            'Pursuing Information Technology engineering with an 8.17 CGPA focused on full-stack and AI development.',
+        'Pursuing Information Technology engineering with an 8.17 CGPA focused on full-stack and AI development.',
     },
     {
         title: 'Diploma in Information Technology',
