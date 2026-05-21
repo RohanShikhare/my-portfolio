@@ -55,7 +55,7 @@ const AboutMe = () => {
         <section className="pb-section" id="about-me">
             <div className="container" ref={container}>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-thin mt-20 slide-up-and-fade leading-tight">
-                    Full Stack Developer creating scalable web applications,
+                    Software Developer creating scalable web applications,
                     responsive interfaces, and performance-focused digital
                     experiences using modern frontend and backend technologies.
                 </h2>

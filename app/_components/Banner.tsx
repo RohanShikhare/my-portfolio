@@ -49,13 +49,13 @@ const Banner = () => {
                 {/* LEFT CONTENT */}
                 <div className="max-w-[620px] w-full text-center lg:text-left">
                     <h1 className="banner-title slide-up-and-fade leading-[0.9] text-5xl sm:text-7xl lg:text-[90px] font-bebas tracking-wide">
-                        <span className="text-primary font-italiana">FULL STACK</span>
+                        <span className="text-primary font-italiana">SOFTWARE</span>
                         <br />
                         <span className="text-white">DEVELOPER</span>
                     </h1>
 
                     <p className="banner-description slide-up-and-fade mt-6 text-base sm:text-lg leading-7 text-muted-foreground max-w-[520px] mx-auto lg:mx-0">
-                        Full Stack Developer specializing in modern web applications, responsive UI/UX design, scalable frontend architecture, and high-performance digital experiences.
+                        Software Developer specializing in modern web applications, responsive UI/UX design, scalable frontend architecture, and high-performance digital experiences.
                     </p>
 
                     <Button
@@ -122,7 +122,7 @@ const Banner = () => {
                         </p>
 
                         <h3 className="text-lg text-white">
-                            Full Stack Developer
+                            Software Developer
                         </h3>
                     </div>
                 </div>
