@@ -29,14 +29,14 @@ const italiana = Italiana({
 export const metadata: Metadata = {
     metadataBase: new URL('https://rohan-shikhare-portfolio.vercel.app'),
     title: {
-        default: 'Rohan Shikhare | Software Developer',
+        default: 'Rohan Shikhare | Full Stack Developer',
         template: '%s | Rohan Shikhare',
     },
     description:
-        'Rohan Shikhare is a Software Developer building modern, responsive, and accessible digital experiences with Next.js, React, TypeScript, and full-stack web technologies.',
+        'Rohan Shikhare is a Full Stack Developer building modern, responsive, and accessible digital experiences with Next.js, React, TypeScript, and full-stack web technologies.',
     keywords: [
         'Rohan Shikhare',
-        'Software Developer',
+        'Full Stack Developer',
         'portfolio',
         'Next.js',
         'React',
@@ -65,9 +65,9 @@ export const metadata: Metadata = {
         canonical: 'https://rohan-shikhare-portfolio.vercel.app',
     },
     openGraph: {
-        title: 'Rohan Shikhare | Software Developer',
+        title: 'Rohan Shikhare | Full Stack Developer',
         description:
-            'Portfolio of Software Developer Rohan Shikhare showcasing modern web applications, creative frontend experiences, and technical expertise.',
+            'Portfolio of Full Stack Developer Rohan Shikhare showcasing modern web applications, creative frontend experiences, and technical expertise.',
         url: 'https://rohan-shikhare-portfolio.vercel.app',
         siteName: 'Rohan Shikhare Portfolio',
         type: 'website',
@@ -83,9 +83,9 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Rohan Shikhare | Software Developer',
+        title: 'Rohan Shikhare | Full Stack Developer',
         description:
-            'Portfolio of Software Developer Rohan Shikhare showcasing modern web applications, creative frontend experiences, and technical expertise.',
+            'Portfolio of Full Stack Developer Rohan Shikhare showcasing modern web applications, creative frontend experiences, and technical expertise.',
         creator: '@RohanShikhare',
         images: ['/og-image.jpg'],
     },
