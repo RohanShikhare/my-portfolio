@@ -7,7 +7,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import React from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import ProfileImage from '../../public/mebutnotme.webp';
+import ProfileImage from '../../public/Rohan_Shikhare_Developer.webp';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -108,7 +108,7 @@ const Banner = () => {
                     <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_50px_rgba(0,255,255,0.08)]">
                         <img
                             src={ProfileImage.src}
-                            alt="Profile"
+                            alt="Rohan Shikhare Full Stack Java Developer"
                             className="h-[380px] w-[260px] sm:h-[480px] sm:w-[340px] object-cover grayscale contrast-110 brightness-90"
                         />
 
