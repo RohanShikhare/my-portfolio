@@ -1,10 +1,10 @@
 'use client';
 import ArrowAnimation from '@/components/ArrowAnimation';
-import Button from '@/components/Button';
 import { GENERAL_INFO, SOCIAL_LINKS } from '@/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import Image from 'next/image';
 import React from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import ProfileImage from '../../public/rohan-shikhare-developer.webp';
@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const Banner = () => {
     const containerRef = React.useRef<HTMLDivElement>(null);
 
-    // move the content a little up on scroll
+    // Subtle scroll-exit scrub
     useGSAP(
         () => {
             const tl = gsap.timeline({
@@ -29,102 +29,139 @@ const Banner = () => {
             tl.fromTo(
                 '.slide-up-and-fade',
                 { y: 0 },
-                { y: -150, opacity: 0, stagger: 0.02 },
+                { y: -120, opacity: 0, stagger: 0.02 },
             );
         },
         { scope: containerRef },
     );
 
+    const githubLink = SOCIAL_LINKS.find((link) => link.name === 'github')?.url;
+    const linkedinLink = SOCIAL_LINKS.find((link) => link.name === 'linkedin')?.url;
+
     return (
         <section
-            className="relative overflow-hidden pt-20 md:pt-28 pb-14 lg:py-0"
+            className="relative overflow-hidden bg-background text-editorial-ink border-b border-editorial-border pt-24 sm:pt-28 md:pt-36 pb-20 md:pb-28 transition-colors duration-300"
             id="banner"
         >
-            <ArrowAnimation />
-
             <div
-                className="container min-h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-14 lg:gap-20"
+                className="container min-h-[calc(100svh-140px)] flex flex-col justify-between"
                 ref={containerRef}
             >
-                {/* LEFT CONTENT */}
-                <div className="max-w-[620px] w-full text-center lg:text-left">
-                    <h1 className="banner-title slide-up-and-fade leading-[0.9] text-5xl sm:text-7xl lg:text-[90px] font-bebas tracking-wide">
-                        <span className="text-primary font-italiana">FULL STACK</span>
-                        <br />
-                        <span className="text-white">DEVELOPER</span>
-                    </h1>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+                    {/* LEFT COLUMN: Editorial Typography & Actions */}
+                    <div className="lg:col-span-7 xl:col-span-8 flex flex-col">
+                        {/* Eyebrow Label */}
+                        <div className="slide-up-and-fade flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-sans font-medium tracking-[0.2em] uppercase text-editorial-muted">
+                            <span className="text-editorial-ink font-semibold">Software Developer</span>
+                            <span className="size-1 rounded-full bg-editorial-muted/40" aria-hidden="true" />
+                            <span>Founder / Builder</span>
+                            <span className="hidden xs:inline-block size-1 rounded-full bg-editorial-muted/40" aria-hidden="true" />
+                            <span className="hidden xs:inline text-editorial-muted">India (UTC+5:30)</span>
+                        </div>
 
-                    <p className="banner-description slide-up-and-fade mt-6 text-base sm:text-lg leading-7 text-muted-foreground max-w-[520px] mx-auto lg:mx-0">
-                        Full Stack Developer specializing in modern web applications, responsive UI/UX design, scalable frontend architecture, and high-performance digital experiences.
-                    </p>
+                        {/* Main Editorial Headline */}
+                        <h1 className="slide-up-and-fade mt-6 sm:mt-8 text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-[72px] xl:text-[84px] font-sans font-medium tracking-tight text-editorial-ink leading-[1.06]">
+                            Building software with{' '}
+                            <span className="font-serif italic font-normal text-editorial-ink">
+                                architectural rigour.
+                            </span>
+                            <br className="hidden sm:inline" />
+                            Turning ideas into{' '}
+                            <span className="font-serif italic font-normal text-editorial-accent">
+                                refined products.
+                            </span>
+                        </h1>
 
-                    <Button
-                        as="link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={`mailto:${GENERAL_INFO.email}?subject=${GENERAL_INFO.emailSubject}&body=${encodeURIComponent(GENERAL_INFO.emailBody)}`}
-                        variant="primary"
-                        className="mt-8 banner-button slide-up-and-fade "
-                    >
-                        Let&apos;s Talk
-                    </Button>
+                        {/* Supporting Narrative */}
+                        <p className="slide-up-and-fade mt-6 sm:mt-8 text-base sm:text-lg md:text-xl text-editorial-muted font-sans leading-relaxed max-w-[620px]">
+                            Software developer specializing in full-stack web architecture, performance-first frontend systems, and clean interface engineering. Currently building production web applications and establishing an independent software venture with two partners.
+                        </p>
 
-                    <div className="flex items-center justify-center lg:justify-start gap-2 mt-5">
-                        <span className="size-3 rounded-full bg-primary animate-pulse"></span>
+                        {/* Action Row */}
+                        <div className="slide-up-and-fade mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-6">
+                            <a
+                                href="#selected-projects"
+                                className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-editorial-ink text-white font-sans text-sm sm:text-base font-medium tracking-wide transition-all duration-300 hover:bg-editorial-hover hover:scale-[1.02] active:scale-[0.98] shadow-sm"
+                            >
+                                <span>View Selected Work</span>
+                                <span className="transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+                            </a>
 
-                        <span className="text-sm text-muted-foreground">
-                            Available for full-time opportunities
-                        </span>
+                            <a
+                                href={`mailto:${GENERAL_INFO.email}?subject=${encodeURIComponent(GENERAL_INFO.emailSubject)}&body=${encodeURIComponent(GENERAL_INFO.emailBody)}`}
+                                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-editorial-border bg-editorial-surface text-editorial-ink font-sans text-sm sm:text-base font-medium transition-all duration-300 hover:bg-white hover:border-editorial-ink/40"
+                            >
+                                <span>Get in Touch</span>
+                            </a>
+                        </div>
+
+                        {/* Status & Secondary Social Links */}
+                        <div className="slide-up-and-fade mt-8 pt-8 border-t border-editorial-border/60 flex flex-wrap items-center justify-between gap-4">
+                            <div className="flex items-center gap-2.5">
+                                <span className="relative flex size-2.5">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+                                    <span className="relative inline-flex rounded-full size-2.5 bg-emerald-600" />
+                                </span>
+                                <span className="font-sans text-xs sm:text-sm text-editorial-muted">
+                                    Available for technical opportunities &amp; collaboration
+                                </span>
+                            </div>
+
+                            <div className="flex items-center gap-5">
+                                {githubLink && (
+                                    <a
+                                        href={githubLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="GitHub Profile"
+                                        className="text-editorial-muted hover:text-editorial-ink transition-colors duration-200"
+                                    >
+                                        <FaGithub className="text-xl" />
+                                    </a>
+                                )}
+                                {linkedinLink && (
+                                    <a
+                                        href={linkedinLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="LinkedIn Profile"
+                                        className="text-editorial-muted hover:text-editorial-ink transition-colors duration-200"
+                                    >
+                                        <FaLinkedin className="text-xl" />
+                                    </a>
+                                )}
+                            </div>
+                        </div>
                     </div>
 
-                    {/* SOCIALS */}
-                    <div className="flex items-center justify-center lg:justify-start gap-5 mt-8">
-                        <a
-                            href={SOCIAL_LINKS.find(link => link.name === 'github')?.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group transition-all duration-300"
-                        >
-                            <FaGithub className="text-3xl text-white transition-all duration-300 group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.35)]" />
-                        </a>
+                    {/* RIGHT COLUMN: Art-Directed Editorial Portrait */}
+                    <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end self-start">
+                        <div className="slide-up-and-fade w-full max-w-[340px] sm:max-w-[380px] lg:max-w-none">
+                            <div className="relative p-3 sm:p-4 rounded-2xl bg-editorial-surface border border-editorial-border shadow-sm">
+                                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-editorial-surface">
+                                    <Image
+                                        src={ProfileImage}
+                                        alt="Rohan Shikhare — Software Developer and Founder"
+                                        priority
+                                        sizes="(max-width: 640px) 320px, (max-width: 1024px) 380px, 420px"
+                                        className="object-cover w-full h-full grayscale contrast-[1.08] brightness-[0.98] transition-transform duration-700 hover:scale-[1.03]"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                                </div>
 
-                        <a
-                            href={SOCIAL_LINKS.find(link => link.name === 'linkedin')?.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group transition-all duration-300"
-                        >
-                            <FaLinkedin className="text-3xl text-white transition-all duration-300 group-hover:text-cyan-400 group-hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.35)]" />
-                        </a>
+                                {/* Matte Caption */}
+                                <div className="mt-3.5 px-1 flex items-baseline justify-between font-sans text-xs text-editorial-muted">
+                                    <span className="font-medium text-editorial-ink">Rohan Shikhare</span>
+                                    <span className="tracking-widest uppercase text-[10px]">Mumbai &bull; IN</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                {/* RIGHT IMAGE */}
-                <div className="relative z-[2] flex items-center justify-center">
-                    {/* GLOW */}
-                    <div className="absolute h-[260px] w-[260px] sm:h-[320px] sm:w-[320px] rounded-full bg-cyan-400/20 blur-[100px]" />
-
-                    {/* IMAGE */}
-                    <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md shadow-[0_0_50px_rgba(0,255,255,0.08)]">
-                        <img
-                            src={ProfileImage.src}
-                            alt="Rohan Shikhare Full Stack Java Developer"
-                            className="h-[380px] w-[260px] sm:h-[480px] sm:w-[340px] object-cover grayscale contrast-110 brightness-90"
-                        />
-
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                    </div>
-
-                    {/* FLOATING CARD */}
-                    <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 lg:left-[-30px] lg:translate-x-0 rounded-2xl border border-white/10 bg-black/70 px-4 py-3 backdrop-blur-xl">
-                        <p className="text-xs text-muted-foreground">
-                            Based in India
-                        </p>
-
-                        <h3 className="text-lg text-white">
-                            Full Stack Developer
-                        </h3>
-                    </div>
+                {/* Subtle Scroll Cue */}
+                <div className="relative mt-12 pt-6 flex justify-center">
+                    <ArrowAnimation />
                 </div>
             </div>
         </section>

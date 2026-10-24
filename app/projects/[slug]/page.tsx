@@ -5,6 +5,10 @@ import { Metadata } from 'next';
 
 const siteUrl = 'https://rohan-shikhare-portfolio.vercel.app';
 
+function stripHtml(html: string): string {
+    return html.replace(/<[^>]*>?/gm, ' ').replace(/\s+/g, ' ').trim();
+}
+
 export const generateStaticParams = async () => {
     return PROJECTS.map((project) => ({ slug: project.slug }));
 };
@@ -27,28 +31,30 @@ export const generateMetadata = async ({
         };
     }
 
-    const title = `${project.title} - ${project.techStack
-        .slice(0, 3)
-        .join(', ')}`;
+    const title = `${project.title} — ${project.techStack.slice(0, 3).join(', ')}`;
+    const cleanDescription = stripHtml(project.description).slice(0, 160);
     const projectUrl = `${siteUrl}/projects/${slug}`;
+    const projectImage = project.thumbnail
+        ? `${siteUrl}${project.thumbnail}`
+        : `${siteUrl}/og-image.jpg`;
 
     return {
         title,
-        description: project.description,
+        description: cleanDescription,
         alternates: {
             canonical: projectUrl,
         },
         openGraph: {
-            title,
-            description: project.description,
+            title: `${project.title} | Rohan Shikhare`,
+            description: cleanDescription,
             url: projectUrl,
             siteName: 'Rohan Shikhare Portfolio',
-            type: 'website',
+            type: 'article',
             locale: 'en_US',
             images: [
                 {
-                    url: '/og-image.jpg',
-                    alt: `${project.title} project preview`,
+                    url: projectImage,
+                    alt: `${project.title} project showcase preview`,
                     width: 1200,
                     height: 630,
                 },
@@ -56,10 +62,9 @@ export const generateMetadata = async ({
         },
         twitter: {
             card: 'summary_large_image',
-            title,
-            description: project.description,
-            creator: '@RohanShikhare',
-            images: ['/og-image.jpg'],
+            title: `${project.title} | Rohan Shikhare`,
+            description: cleanDescription,
+            images: [projectImage],
         },
         robots: {
             index: true,
@@ -84,7 +89,34 @@ const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
         return notFound();
     }
 
-    return <ProjectDetails project={project} />;
+    const projectStructuredData = {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: project.title,
+        applicationCategory: 'WebApplication',
+        operatingSystem: 'All',
+        description: stripHtml(project.description).slice(0, 200),
+        url: `${siteUrl}/projects/${project.slug}`,
+        author: {
+            '@type': 'Person',
+            name: 'Rohan Shikhare',
+            url: siteUrl,
+        },
+        keywords: project.techStack.join(', '),
+    };
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(projectStructuredData),
+                }}
+            />
+            <ProjectDetails project={project} />
+        </>
+    );
 };
 
 export default Page;
+

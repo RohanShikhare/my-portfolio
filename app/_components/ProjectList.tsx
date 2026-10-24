@@ -104,20 +104,20 @@ const ProjectList = () => {
     };
 
     return (
-        <section className="pb-section" id="selected-projects">
+        <section className="py-24 sm:py-32 bg-background text-editorial-ink border-b border-editorial-border" id="selected-projects">
             <div className="container">
-                <SectionTitle title="SELECTED PROJECTS" />
+                <SectionTitle title="Selected Projects" />
 
                 <div className="group/projects relative" ref={containerRef}>
                     {selectedProject !== null && (
                         <div
-                            className="max-md:hidden absolute right-0 top-0 z-[1] pointer-events-none w-[200px] xl:w-[350px] aspect-[3/4] overflow-hidden opacity-0"
+                            className="max-md:hidden absolute right-0 top-0 z-decorative pointer-events-none w-[220px] xl:w-[350px] aspect-[3/4] overflow-hidden rounded-2xl border border-editorial-border shadow-xl opacity-0 bg-editorial-surface"
                             ref={imageContainer}
                         >
                             {PROJECTS.map((project) => (
                                 <Image
                                     src={project.thumbnail}
-                                    alt="Project"
+                                    alt={`${project.title} preview`}
                                     width="400"
                                     height="500"
                                     className={cn(

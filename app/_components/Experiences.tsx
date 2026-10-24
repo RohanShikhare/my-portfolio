@@ -116,7 +116,7 @@ const Experiences = () => {
                         start: 'top center',
                         end: 'bottom center',
                         scrub: 0.6,
-                        onUpdate: (self) => {
+                        onUpdate: () => {
                             if (desktopProgressTip) {
                                 const barHeight =
                                     desktopProgressBar.offsetHeight;
@@ -145,7 +145,7 @@ const Experiences = () => {
                         start: 'top center',
                         end: 'bottom center',
                         scrub: 0.6,
-                        onUpdate: (self) => {
+                        onUpdate: () => {
                             if (mobileProgressTip) {
                                 const barHeight =
                                     mobileProgressBar.offsetHeight;
@@ -162,7 +162,7 @@ const Experiences = () => {
 
     return (
         <section
-            className="py-section text-white overflow-hidden"
+            className="py-24 sm:py-32 bg-background text-editorial-ink border-b border-editorial-border overflow-hidden"
             id="my-experience"
         >
             <div className="container relative" ref={containerRef}>
@@ -175,32 +175,30 @@ const Experiences = () => {
                     {/* Desktop Timeline - Centered */}
                     <div className="absolute hidden lg:flex lg:flex-col left-1/2 top-0 h-full w-px -translate-x-1/2">
                         {/* Background line */}
-                        <div className="absolute inset-0 w-px bg-cyan-400/15" />
+                        <div className="absolute inset-0 w-px bg-editorial-border" />
 
                         {/* Animated progress line */}
-                        <div className="timeline-progress desktop-progress absolute left-0 top-0 w-full h-0 bg-gradient-to-b from-cyan-400/95 via-cyan-400/50 to-cyan-400/10 shadow-[0_0_30px_rgba(0,255,255,0.4)]" />
+                        <div className="timeline-progress desktop-progress absolute left-0 top-0 w-full h-0 bg-editorial-ink" />
 
-                        {/* Glowing node tip */}
+                        {/* Node tip */}
                         <div
                             style={{ left: '-10px' }}
-                            className="timeline-progress-tip desktop-tip absolute left-1/2 top-0 h-5 w-5 -translate-y-1/2 rounded-full bg-cyan-400/90 shadow-[0_0_24px_rgba(0,255,255,0.5),0_0_48px_rgba(0,255,255,0.25)]"
+                            className="timeline-progress-tip desktop-tip absolute left-1/2 top-0 h-5 w-5 -translate-y-1/2 rounded-full bg-editorial-ink border-2 border-white shadow-sm"
                         >
-                            <div className="absolute inset-0 rounded-full bg-cyan-400/40 blur-lg" />
                             <div className="absolute h-2 w-2 rounded-full bg-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
                         </div>
                     </div>
 
                     {/* Mobile Timeline - Left side */}
-                    <div className="absolute lg:hidden left-8 top-0 h-full w-px bg-cyan-400/15">
+                    <div className="absolute lg:hidden left-8 top-0 h-full w-px bg-editorial-border">
                         {/* Animated progress line */}
-                        <div className="timeline-progress mobile-progress absolute left-0 top-0 w-full h-0 bg-gradient-to-b from-cyan-400/95 via-cyan-400/50 to-cyan-400/10 shadow-[0_0_30px_rgba(0,255,255,0.4)]" />
+                        <div className="timeline-progress mobile-progress absolute left-0 top-0 w-full h-0 bg-editorial-ink" />
 
-                        {/* Glowing node tip */}
+                        {/* Node tip */}
                         <div
                             style={{ left: '-8px' }}
-                            className="timeline-progress-tip mobile-tip absolute left-1/2 top-0 h-4 w-4 -translate-y-1/2 rounded-full bg-cyan-400/90 shadow-[0_0_20px_rgba(0,255,255,0.5),0_0_40px_rgba(0,255,255,0.25)]"
+                            className="timeline-progress-tip mobile-tip absolute left-1/2 top-0 h-4 w-4 -translate-y-1/2 rounded-full bg-editorial-ink border-2 border-white shadow-sm"
                         >
-                            <div className="absolute inset-0 rounded-full bg-cyan-400/40 blur-lg" />
                             <div className="absolute h-1.5 w-1.5 rounded-full bg-white left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" />
                         </div>
                     </div>
@@ -217,7 +215,7 @@ const Experiences = () => {
                                     <div className="flex flex-col gap-4">
                                         {/* Year Badge */}
                                         <div className="inline-flex w-fit">
-                                            <span className="text-sm sm:text-base uppercase tracking-[0.15em] text-cyan-300/90 px-3 py-1 rounded bg-cyan-400/10 border border-cyan-400/20">
+                                            <span className="text-xs sm:text-sm font-sans uppercase tracking-[0.15em] text-editorial-muted font-medium px-3 py-1 rounded-full bg-editorial-surface border border-editorial-border">
                                                 {entry.year}
                                             </span>
                                         </div>
@@ -225,17 +223,17 @@ const Experiences = () => {
                                         {/* Content Section */}
                                         <div className="space-y-3">
                                             {/* Title */}
-                                            <h3 className="text-lg sm:text-xl  leading-snug text-white">
+                                            <h3 className="text-lg sm:text-xl font-sans font-medium leading-snug tracking-tight text-editorial-ink">
                                                 {entry.title}
                                             </h3>
 
                                             {/* Subtitle */}
-                                            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-cyan-300/70 font-medium">
+                                            <p className="text-xs sm:text-sm font-sans uppercase tracking-[0.2em] text-editorial-muted font-medium">
                                                 {entry.subtitle}
                                             </p>
 
                                             {/* Description */}
-                                            <p className="text-sm sm:text-base leading-relaxed text-slate-300/90 pt-2">
+                                            <p className="text-sm sm:text-base font-sans leading-relaxed text-editorial-muted pt-2">
                                                 {entry.description}
                                             </p>
                                         </div>
@@ -253,24 +251,24 @@ const Experiences = () => {
                                 >
                                     {/* Left Column - Title & Subtitle */}
                                     <div className="col-start-1 space-y-2 pr-6">
-                                        <h3 className="text-xl  leading-snug text-white">
+                                        <h3 className="text-xl font-sans font-medium leading-snug tracking-tight text-editorial-ink">
                                             {entry.title}
                                         </h3>
-                                        <p className="text-sm uppercase tracking-[0.15em] text-cyan-300/70 font-medium">
+                                        <p className="text-sm font-sans uppercase tracking-[0.15em] text-editorial-muted font-medium">
                                             {entry.subtitle}
                                         </p>
                                     </div>
 
                                     {/* Center Column - Year (Perfectly Centered) */}
                                     <div className="col-start-2 flex flex-col items-center justify-start">
-                                        <span className="text-base uppercase tracking-[0.1em] text-slate-100 whitespace-nowrap">
+                                        <span className="text-xs uppercase tracking-[0.15em] text-editorial-muted font-sans font-medium whitespace-nowrap px-3 py-1 rounded-full bg-editorial-surface border border-editorial-border">
                                             {entry.year}
                                         </span>
                                     </div>
 
                                     {/* Right Column - Description */}
                                     <div className="col-start-3 space-y-0 pl-6">
-                                        <p className="text-base leading-relaxed text-slate-300/90">
+                                        <p className="text-base font-sans leading-relaxed text-editorial-muted">
                                             {entry.description}
                                         </p>
                                     </div>

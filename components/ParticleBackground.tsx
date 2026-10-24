@@ -30,14 +30,14 @@ const ParticleBackground = () => {
     }, []);
 
     return (
-        <div className="fixed inset-0 z-0 pointer-events-none">
-            {[...Array(100)].map((_, i) => (
+        <div className="fixed inset-0 z-base pointer-events-none">
+            {[...Array(60)].map((_, i) => (
                 <div
                     key={i}
                     ref={(el) => {
                         particlesRef.current.push(el!);
                     }}
-                    className="absolute rounded-full bg-white"
+                    className="absolute rounded-full bg-editorial-ink/15"
                 />
             ))}
         </div>

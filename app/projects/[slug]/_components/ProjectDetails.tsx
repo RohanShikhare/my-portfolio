@@ -85,38 +85,39 @@ const ProjectDetails = ({ project }: Props) => {
     );
 
     return (
-        <section className="pt-5 pb-14">
+        <section className="pt-6 pb-20 bg-background text-editorial-ink">
             <div className="container" ref={containerRef}>
                 <TransitionLink
                     back
                     href="/"
-                    className="mb-16 inline-flex gap-2 items-center group h-12"
+                    className="mb-12 inline-flex gap-2.5 items-center group h-10 text-editorial-ink hover:text-editorial-hover font-sans text-sm font-medium transition-colors"
                 >
-                    <ArrowLeft className="group-hover:-translate-x-1 group-hover:text-primary transition-all duration-300" />
-                    Back
+                    <ArrowLeft className="size-4 group-hover:-translate-x-1 transition-transform duration-300" />
+                    <span>Back to Overview</span>
                 </TransitionLink>
 
                 <div
-                    className="top-0 min-h-[calc(100svh-100px)] flex"
+                    className="top-0 min-h-[calc(100svh-120px)] flex"
                     id="info"
                 >
                     <div className="relative w-full">
-                        <div className="flex items-start gap-6 mx-auto mb-10 max-w-[635px]">
-                            <h1 className="fade-in-later opacity-0 text-4xl md:text-[60px] leading-none  overflow-hidden">
+                        <div className="flex items-start justify-between gap-6 mx-auto mb-10 max-w-[680px]">
+                            <h1 className="fade-in-later opacity-0 text-4xl md:text-6xl font-sans font-medium tracking-tight text-editorial-ink leading-tight overflow-hidden">
                                 <span className="inline-block">
                                     {project.title}
                                 </span>
                             </h1>
 
-                            <div className="fade-in-later opacity-0 flex gap-2">
+                            <div className="fade-in-later opacity-0 flex items-center gap-3 pt-2">
                                 {project.sourceCode && (
                                     <a
                                         href={project.sourceCode}
                                         target="_blank"
                                         rel="noreferrer noopener"
-                                        className="hover:text-primary"
+                                        aria-label="View Source Code on GitHub"
+                                        className="text-editorial-muted hover:text-editorial-ink transition-colors"
                                     >
-                                        <Github size={30} />
+                                        <Github size={24} />
                                     </a>
                                 )}
                                 {project.liveUrl && (
@@ -124,47 +125,49 @@ const ProjectDetails = ({ project }: Props) => {
                                         href={project.liveUrl}
                                         target="_blank"
                                         rel="noreferrer noopener"
-                                        className="hover:text-primary"
+                                        aria-label="View Live Project Site"
+                                        className="text-editorial-muted hover:text-editorial-ink transition-colors"
                                     >
-                                        <ExternalLink size={30} />
+                                        <ExternalLink size={24} />
                                     </a>
                                 )}
                             </div>
                         </div>
 
-                        <div className="max-w-[635px] space-y-7 pb-20 mx-auto">
+                        <div className="max-w-[680px] space-y-8 pb-20 mx-auto">
                             <div className="fade-in-later">
-                                <p className="font-italiana font-semibold mb-3">
+                                <p className="font-sans text-xs uppercase tracking-[0.2em] font-semibold text-editorial-muted mb-2">
                                     Year
                                 </p>
-
-                                <div className="text-lg">{project.year}</div>
+                                <div className="text-base md:text-lg text-editorial-ink font-sans">
+                                    {project.year}
+                                </div>
                             </div>
-                            <div className="fade-in-later">
-                                <p className="font-italiana font-semibold mb-3">
-                                    Tech & Technique
-                                </p>
 
-                                <div className="text-lg">
+                            <div className="fade-in-later">
+                                <p className="font-sans text-xs uppercase tracking-[0.2em] font-semibold text-editorial-muted mb-2">
+                                    Tech &amp; Technique
+                                </p>
+                                <div className="text-base md:text-lg text-editorial-ink font-sans leading-relaxed">
                                     {project.techStack.join(', ')}
                                 </div>
                             </div>
+
                             <div className="fade-in-later">
-                                <p className="font-italiana font-semibold mb-3">
+                                <p className="font-sans text-xs uppercase tracking-[0.2em] font-semibold text-editorial-muted mb-2">
                                     Description
                                 </p>
-
-                                <div className="text-lg prose-xl markdown-text">
+                                <div className="text-base md:text-lg text-editorial-muted font-sans leading-relaxed markdown-text">
                                     {parse(project.description)}
                                 </div>
                             </div>
+
                             {project.role && (
                                 <div className="fade-in-later">
-                                    <p className="font-italiana font-semibold mb-3">
+                                    <p className="font-sans text-xs uppercase tracking-[0.2em] font-semibold text-editorial-muted mb-2">
                                         My Role
                                     </p>
-
-                                    <div className="text-lg">
+                                    <div className="text-base md:text-lg text-editorial-muted font-sans leading-relaxed markdown-text">
                                         {parse(project.role)}
                                     </div>
                                 </div>
@@ -176,13 +179,13 @@ const ProjectDetails = ({ project }: Props) => {
                 </div>
 
                 <div
-                    className="fade-in-later relative flex flex-col gap-2 max-w-[800px] mx-auto"
+                    className="fade-in-later relative flex flex-col gap-6 max-w-[850px] mx-auto mt-8"
                     id="images"
                 >
                     {project.images.map((image) => (
                         <div
                             key={image}
-                            className="group relative w-full aspect-[750/400] bg-background-light"
+                            className="group relative w-full aspect-[750/420] bg-editorial-surface rounded-2xl border border-editorial-border overflow-hidden shadow-sm"
                             style={{
                                 backgroundImage: `url(${image})`,
                                 backgroundSize: 'cover',
@@ -193,9 +196,11 @@ const ProjectDetails = ({ project }: Props) => {
                             <a
                                 href={image}
                                 target="_blank"
-                                className="absolute top-4 right-4 bg-background/70 text-foreground size-12 inline-flex justify-center items-center transition-all opacity-0 hover:bg-primary hover:text-primary-foreground group-hover:opacity-100"
+                                rel="noopener noreferrer"
+                                aria-label="Open full resolution image in new tab"
+                                className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm border border-editorial-border text-editorial-ink size-11 rounded-full inline-flex justify-center items-center transition-all opacity-0 hover:bg-editorial-ink hover:text-white group-hover:opacity-100 shadow-sm"
                             >
-                                <ExternalLink />
+                                <ExternalLink size={18} />
                             </a>
                         </div>
                     ))}

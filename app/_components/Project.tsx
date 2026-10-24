@@ -89,35 +89,35 @@ const Project = ({ index, project, selectedProject, onMouseEnter }: Props) => {
     return (
         <TransitionLink
             href={`/projects/${project.slug}`}
-            className="project-item group leading-none py-5 md:border-b first:!pt-0 last:pb-0 last:border-none md:group-hover/projects:opacity-30 md:hover:!opacity-100 transition-all"
+            className="project-item group leading-none py-6 md:border-b border-editorial-border first:!pt-0 last:pb-0 last:border-none md:group-hover/projects:opacity-30 md:hover:!opacity-100 transition-all"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
             {selectedProject === null && (
                 <Image
                     src={project.thumbnail}
-                    alt="Project"
+                    alt={`${project.title} project showcase thumbnail`}
                     width="300"
                     height="200"
                     className={cn(
-                        'w-full object-cover mb-6 aspect-[3/2] object-top',
+                        'w-full object-cover mb-6 aspect-[3/2] object-top rounded-xl border border-editorial-border shadow-sm',
                     )}
                     key={project.slug}
                     loading="lazy"
                 />
             )}
-            <div className="flex gap-2 md:gap-5">
-                <div className=" text-muted-foreground">
+            <div className="flex gap-3 md:gap-6">
+                <div className="text-editorial-muted font-sans font-mono text-sm md:text-base pt-1">
                     {(index + 1).toString().padStart(2, '0')}.
                 </div>
-                <div className="">
-                    <h4 className="text-4xl xs:text-6xl flex gap-4  transition-all duration-700 bg-gradient-to-r from-primary to-foreground from-[50%] to-[50%] bg-[length:200%] bg-right bg-clip-text text-transparent group-hover:bg-left">
+                <div>
+                    <h4 className="text-3xl xs:text-5xl sm:text-6xl font-sans font-medium tracking-tight text-editorial-ink flex items-center gap-4 transition-colors duration-300 group-hover:text-editorial-hover">
                         {project.title}
-                        <span className="text-foreground opacity-0 group-hover:opacity-100 transition-all">
+                        <span className="text-editorial-ink opacity-0 group-hover:opacity-100 transition-all">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="36"
-                                height="36"
+                                width="32"
+                                height="32"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"
@@ -135,19 +135,16 @@ const Project = ({ index, project, selectedProject, onMouseEnter }: Props) => {
                             </svg>
                         </span>
                     </h4>
-                    <div className="mt-2 flex flex-wrap gap-3 text-muted-foreground text-xs">
+                    <div className="mt-3 flex flex-wrap gap-2 text-editorial-muted text-xs font-sans">
                         {project.techStack
-                            .slice(0, 3)
-                            .map((tech, idx, stackArr) => (
-                                <div
-                                    className="gap-3 flex items-center"
+                            .slice(0, 4)
+                            .map((tech) => (
+                                <span
                                     key={tech}
+                                    className="px-2.5 py-1 rounded-full bg-editorial-surface border border-editorial-border text-editorial-muted text-xs font-sans"
                                 >
-                                    <span className="">{tech}</span>
-                                    {idx !== stackArr.length - 1 && (
-                                        <span className="inline-block size-2 rounded-full bg-background-light"></span>
-                                    )}
-                                </div>
+                                    {tech}
+                                </span>
                             ))}
                     </div>
                 </div>

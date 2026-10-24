@@ -25,9 +25,9 @@ const ScrollProgressIndicator = () => {
     }, []);
 
     return (
-        <div className="fixed top-[50svh] right-[2%] -translate-y-1/2 w-1.5 h-[100px] rounded-full bg-background-light overflow-hidden">
+        <div className="fixed top-[50svh] right-[2%] -translate-y-1/2 w-1.5 h-[100px] rounded-full bg-editorial-border overflow-hidden z-floating">
             <div
-                className="w-full bg-primary rounded-full h-full"
+                className="w-full bg-editorial-ink rounded-full h-full"
                 ref={scrollBarRef}
             ></div>
         </div>

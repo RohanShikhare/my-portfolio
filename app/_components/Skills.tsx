@@ -95,7 +95,11 @@ const Skills = () => {
     );
 
     return (
-        <section id="my-stack" ref={containerRef} className="overflow-hidden">
+        <section
+            id="my-stack"
+            ref={containerRef}
+            className="py-24 sm:py-32 bg-background text-editorial-ink border-b border-editorial-border overflow-hidden"
+        >
             <div className="container">
                 <SectionTitle title="My Stack" />
 

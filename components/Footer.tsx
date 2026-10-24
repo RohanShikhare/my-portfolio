@@ -19,15 +19,18 @@ const Footer = () => {
 
     return (
         <footer
-            className="border-t border-muted/20 py-16 sm:py-20 lg:py-24 overflow-hidden"
+            className="border-t border-editorial-border bg-editorial-surface py-16 sm:py-20 lg:py-24 text-editorial-ink overflow-hidden"
             id="contact"
         >
             <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Title Section */}
                 <div className="mb-12 sm:mb-16 lg:mb-20">
-                    <h2 className="text-3xl font-italiana sm:text-4xl lg:text-5xl font-bold tracking-tight group hover:opacity-80 transition-opacity duration-300 cursor-default">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-medium tracking-tight text-editorial-ink cursor-default">
                         Rohan Shikhare
                     </h2>
+                    <p className="mt-2 text-xs sm:text-sm font-sans uppercase tracking-[0.2em] text-editorial-muted">
+                        Software Developer &bull; Founder
+                    </p>
                 </div>
 
                 {/* Main Footer Grid */}
@@ -36,15 +39,15 @@ const Footer = () => {
                     <div className="space-y-6">
                         {/* Email */}
                         <div className="space-y-2">
-                            <p className="text-base uppercase tracking-widest text-muted-foreground">
-                                Email
+                            <p className="text-xs uppercase tracking-[0.2em] font-sans font-medium text-editorial-muted">
+                                Direct Inquiries
                             </p>
                             <a
                                 href={`mailto:${GENERAL_INFO.email}`}
-                                className="group/email flex items-center gap-2 text-xl sm:text-xl transition-all duration-300 hover:text-primary"
+                                className="group/email flex items-center gap-2 text-lg sm:text-xl font-sans text-editorial-ink transition-colors duration-200 hover:text-editorial-hover"
                             >
                                 <Mail className="w-4 h-4 flex-shrink-0 opacity-60 group-hover/email:opacity-100 transition-opacity" />
-                                <span className="break-all hover:underline">
+                                <span className="break-all hover:underline underline-offset-4 decoration-editorial-border">
                                     {GENERAL_INFO.email}
                                 </span>
                             </a>
@@ -52,10 +55,10 @@ const Footer = () => {
 
                         {/* Location */}
                         <div className="space-y-2">
-                            <p className="text-base uppercase tracking-widest text-muted-foreground">
+                            <p className="text-xs uppercase tracking-[0.2em] font-sans font-medium text-editorial-muted">
                                 Location
                             </p>
-                            <div className="flex items-center gap-2 text-xl sm:text-xl">
+                            <div className="flex items-center gap-2 text-lg sm:text-xl font-sans text-editorial-ink">
                                 <MapPin className="w-4 h-4 flex-shrink-0 opacity-60" />
                                 <span>{GENERAL_INFO.location}</span>
                             </div>
@@ -67,7 +70,7 @@ const Footer = () => {
 
                     {/* Right Section - Social Links */}
                     <div className="space-y-3 sm:space-y-4">
-                        <p className="text-base uppercase tracking-widest text-muted-foreground mb-6">
+                        <p className="text-xs uppercase tracking-[0.2em] font-sans font-medium text-editorial-muted mb-4">
                             Connect
                         </p>
                         <ul className="space-y-3">
@@ -85,19 +88,14 @@ const Footer = () => {
                                         href={link.url}
                                         target="_blank"
                                         rel="noreferrer"
-                                        className={`group/link flex items-center gap-2 text-xl sm:text-xl capitalize transition-all duration-300 ${
-                                            hoveredLinks[link.name]
-                                                ? 'text-primary'
-                                                : 'text-foreground'
-                                        }`}
+                                        className="group/link flex items-center gap-2 text-lg sm:text-xl font-sans capitalize text-editorial-ink hover:text-editorial-hover transition-colors duration-200"
                                     >
-                                        {/* Animated underline */}
                                         <span className="relative pb-1">
-                                            <span className="relative">
+                                            <span>
                                                 {link.name}
                                             </span>
                                             <span
-                                                className={`absolute bottom-0 left-0 h-px bg-gradient-to-r from-primary/60 to-primary/30 transition-all duration-300 ${
+                                                className={`absolute bottom-0 left-0 h-px bg-editorial-ink transition-all duration-300 ${
                                                     hoveredLinks[link.name]
                                                         ? 'w-full opacity-100'
                                                         : 'w-0 opacity-0'
@@ -105,15 +103,14 @@ const Footer = () => {
                                             />
                                         </span>
 
-                                        {/* Arrow Icon with subtle glow */}
                                         <span
-                                            className={`inline-flex flex-shrink-0 transition-all duration-300 ${
+                                            className={`inline-flex flex-shrink-0 transition-transform duration-300 ${
                                                 hoveredLinks[link.name]
-                                                    ? 'translate-x-1 opacity-100 drop-shadow-[0_0_8px_rgba(168,85,247,0.3)]'
-                                                    : 'translate-x-0 opacity-50'
+                                                    ? 'translate-x-1 opacity-100'
+                                                    : 'translate-x-0 opacity-60'
                                             }`}
                                         >
-                                            <MoveUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                            <MoveUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-editorial-muted group-hover/link:text-editorial-ink" />
                                         </span>
                                     </a>
                                 </li>
@@ -123,9 +120,12 @@ const Footer = () => {
                 </div>
 
                 {/* Bottom Divider */}
-                <div className="mt-16 sm:mt-20 pt-8 sm:pt-12 border-t border-muted/10">
-                    <p className="text-base sm:text-sm text-muted-foreground text-center sm:text-left">
-                        © {new Date().getFullYear()} Rohan Shikhare. All rights reserved.
+                <div className="mt-16 sm:mt-20 pt-8 sm:pt-12 border-t border-editorial-border/60 flex flex-wrap items-center justify-between gap-4 font-sans text-xs text-editorial-muted">
+                    <p>
+                        &copy; {new Date().getFullYear()} Rohan Shikhare. All rights reserved.
+                    </p>
+                    <p>
+                        Designed with <span className="font-serif italic font-normal text-editorial-ink">architectural rigour</span> &amp; editorial clarity.
                     </p>
                 </div>
             </div>

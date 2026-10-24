@@ -50,25 +50,25 @@ const Button = ({
     ...rest
 }: Props) => {
     const variantClasses = {
-        primary: `bg-primary text-primary-foreground  hover:bg-primary-hover`,
-        secondary: `bg-secondary text-secondary-foreground hover:bg-secondary-hover`,
-        success: `bg-green-500 text-white hover:bg-green-600`,
-        warning: `bg-orange-500 text-white hover:bg-orange-600`,
-        danger: `bg-destructive text-destructive-foreground hover:bg-destructive/70`,
-        info: `bg-blue-500 text-white hover:bg-blue-600`,
-        light: `bg-background-active text-foreground hover:bg-background-active`,
-        dark: `bg-foreground text-background hover:bg-foreground/80`,
-        link: `text-foreground hover:text-primary`,
+        primary: `bg-editorial-ink text-white hover:bg-editorial-hover`,
+        secondary: `bg-editorial-surface text-editorial-ink border border-editorial-border hover:bg-white`,
+        success: `bg-emerald-600 text-white hover:bg-emerald-700`,
+        warning: `bg-amber-600 text-white hover:bg-amber-700`,
+        danger: `bg-rose-600 text-white hover:bg-rose-700`,
+        info: `bg-sky-600 text-white hover:bg-sky-700`,
+        light: `bg-editorial-surface text-editorial-ink hover:bg-editorial-surface/80`,
+        dark: `bg-editorial-ink text-white hover:bg-editorial-hover`,
+        link: `text-editorial-ink hover:underline underline-offset-4`,
         'no-color': '',
     }[variant || 'primary'];
 
     const iconClasses = cn(
-        'min-w-9 aspect-square text-xl p-0 inline-flex items-center justify-center rounded-md',
+        'min-w-9 aspect-square text-base p-0 inline-flex items-center justify-center rounded-full',
         variantClasses,
     );
 
     const buttonClasses = cn(
-        `group h-12 px-8 inline-flex justify-center items-center gap-2 text-lg uppercase  tracking-widest outline-none transition-colors relative overflow-hidden`,
+        `group h-11 px-6 inline-flex justify-center items-center gap-2 font-sans text-sm font-medium tracking-wide rounded-full outline-none transition-all relative overflow-hidden shadow-sm`,
         variantClasses,
         { [iconClasses]: icon },
         className,
