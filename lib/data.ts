@@ -13,16 +13,15 @@ import {
     SiNextdotjs,
     SiAngular,
     SiNodedotjs,
-    SiMongodb,
+    SiPostgresql,
     SiMysql,
-    SiAndroidstudio,
+    SiSpringboot,
+    SiDocker,
     SiFlutter,
-    SiPostman,
     SiGithub,
+    SiPostman,
     SiLinux,
 } from 'react-icons/si';
-
-import { FaReact } from 'react-icons/fa';
 
 import { IProject } from '@/types';
 
@@ -54,11 +53,11 @@ export const MY_STACK: ITechStack[] = [
     { name: 'Bootstrap', icon: SiBootstrap, color: '#7952B3' },
     { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4' },
     { name: 'Node.js', icon: SiNodedotjs, color: '#339933' },
-    { name: 'MongoDB', icon: SiMongodb, color: '#13AA52' },
+    { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1' },
     { name: 'PHP', icon: SiPhp, color: '#777BB4' },
     { name: 'MySQL', icon: SiMysql, color: '#4479A1' },
-    { name: 'Android Studio', icon: SiAndroidstudio, color: '#3DDC84' },
-    { name: 'React Native', icon: FaReact, color: '#61DAFB' },
+    { name: 'Spring Boot', icon: SiSpringboot, color: '#6DB33F' },
+    { name: 'Docker', icon: SiDocker, color: '#2496ED' },
     { name: 'Flutter', icon: SiFlutter, color: '#02569B' },
     { name: 'GitHub', icon: SiGithub, color: '#181717' },
     { name: 'Postman', icon: SiPostman, color: '#FF6C37' },

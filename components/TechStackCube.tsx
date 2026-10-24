@@ -27,6 +27,9 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({
             )}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            role="article"
+            aria-label={`${name} technology logo`}
+            title={name}
         >
             {/* Content */}
             <div className="relative z-10 flex flex-col items-center justify-center gap-1.5 w-full h-full">
@@ -45,6 +48,7 @@ const TechStackCube: React.FC<TechStackCubeProps> = ({
                         style={{
                             color: color,
                         }}
+                        aria-hidden="true"
                     />
                 </div>
 
