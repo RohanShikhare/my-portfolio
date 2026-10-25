@@ -144,15 +144,15 @@ const Navbar = () => {
                 ref={overlayRef}
                 onKeyDown={handleTrapFocus}
                 className={cn(
-                    'fixed inset-0 z-nav-overlay bg-background text-editorial-ink overflow-y-auto transition-all duration-500 ease-out',
+                    'fixed inset-0 z-nav-overlay bg-background text-editorial-ink overflow-y-auto overflow-x-hidden transition-all duration-500 ease-out',
                     isMenuOpen
                         ? 'opacity-100 pointer-events-auto visible'
                         : 'opacity-0 pointer-events-none invisible',
                 )}
             >
-                <div className="container min-h-screen flex flex-col justify-between py-10 sm:py-14 md:py-16">
+                <div className="container min-h-[100dvh] lg:h-[100dvh] flex flex-col justify-between py-6 sm:py-8 lg:py-[clamp(1rem,2.2vh,2.25rem)]">
                     {/* TOP STATUS BAR */}
-                    <div className="flex items-center justify-between pb-8 border-b border-editorial-border/60">
+                    <div className="flex items-center justify-between pb-4 sm:pb-6 lg:pb-[clamp(0.5rem,1.2vh,1rem)] border-b border-editorial-border/60 shrink-0 md:pr-28 lg:pr-32">
                         <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 font-sans text-xs tracking-[0.2em] uppercase text-editorial-muted">
                             <span className="text-editorial-ink font-semibold">Rohan Shikhare</span>
                             <span className="hidden sm:inline size-1 rounded-full bg-editorial-muted/40" aria-hidden="true" />
@@ -166,33 +166,33 @@ const Navbar = () => {
                     </div>
 
                     {/* MAIN NAVIGATION GRID */}
-                    <div className="py-12 md:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                    <div className="py-6 sm:py-8 lg:py-0 my-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-14 2xl:gap-16 items-center flex-1 min-h-0">
                         {/* LEFT: Nav Links */}
-                        <nav className="lg:col-span-8 flex flex-col space-y-3 sm:space-y-4" aria-label="Primary Navigation">
+                        <nav className="lg:col-span-7 xl:col-span-8 flex flex-col space-y-2 sm:space-y-3 lg:space-y-[clamp(0.25rem,1vh,0.75rem)]" aria-label="Primary Navigation">
                             {NAV_ITEMS.map((item, index) => (
                                 <button
                                     key={item.name}
                                     ref={index === 0 ? firstLinkRef : undefined}
                                     onClick={() => handleNavigate(item.url)}
-                                    className="group text-left py-2 flex items-baseline gap-4 sm:gap-6 border-b border-editorial-border/30 hover:border-editorial-border transition-colors duration-200"
+                                    className="group text-left py-1.5 sm:py-2 lg:py-[clamp(0.2rem,0.6vh,0.5rem)] flex items-baseline gap-3 sm:gap-6 lg:gap-4 xl:gap-6 border-b border-editorial-border/30 hover:border-editorial-border transition-colors duration-200"
                                 >
                                     <span className="font-sans text-xs sm:text-sm font-mono tracking-widest text-editorial-muted group-hover:text-editorial-ink transition-colors">
                                         {item.num}
                                     </span>
 
                                     <div className="flex items-baseline gap-2 sm:gap-3">
-                                        <span className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-editorial-ink transition-all duration-300 group-hover:translate-x-1">
+                                        <span className="font-sans text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-[clamp(1.75rem,3.8vh,3.5rem)] leading-none font-medium tracking-tight text-editorial-ink transition-all duration-300 group-hover:translate-x-1">
                                             {item.name}
                                         </span>
                                         {item.italic && (
-                                            <span className="font-serif italic font-normal text-xl sm:text-2xl md:text-3xl lg:text-4xl text-editorial-muted group-hover:text-editorial-accent transition-colors duration-300">
+                                            <span className="font-serif italic font-normal text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-[clamp(1.15rem,2.4vh,2.25rem)] leading-none text-editorial-muted group-hover:text-editorial-accent transition-colors duration-300">
                                                 {item.italic}
                                             </span>
                                         )}
                                     </div>
 
                                     <ArrowUpRight
-                                        className="size-5 sm:size-6 text-editorial-muted opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto"
+                                        className="size-4 sm:size-5 lg:size-[clamp(1rem,2vh,1.5rem)] text-editorial-muted opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ml-auto"
                                         aria-hidden="true"
                                     />
                                 </button>
@@ -200,55 +200,55 @@ const Navbar = () => {
                         </nav>
 
                         {/* RIGHT: Editorial Context & Connectivity */}
-                        <div className="lg:col-span-4 flex flex-col justify-between space-y-10 lg:pl-8 lg:border-l lg:border-editorial-border/60">
+                        <div className="lg:col-span-5 xl:col-span-4 flex flex-col space-y-6 sm:space-y-8 lg:space-y-[clamp(0.6rem,1.8vh,1.75rem)] lg:pl-8 xl:pl-10 lg:border-l lg:border-editorial-border/60">
                             {/* Inquiries */}
-                            <div className="space-y-3 font-sans">
-                                <p className="text-xs uppercase tracking-[0.2em] font-medium text-editorial-muted">
+                            <div className="space-y-1.5 sm:space-y-2 lg:space-y-[clamp(0.2rem,0.5vh,0.6rem)] font-sans">
+                                <p className="text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium text-editorial-muted">
                                     Direct Inquiries
                                 </p>
                                 <a
                                     href={`mailto:${GENERAL_INFO.email}`}
-                                    className="block text-base sm:text-lg text-editorial-ink hover:text-editorial-accent font-medium underline underline-offset-4 decoration-editorial-border transition-colors"
+                                    className="block text-sm sm:text-base lg:text-sm xl:text-base 2xl:text-lg text-editorial-ink hover:text-editorial-accent font-medium underline underline-offset-4 decoration-editorial-border transition-colors break-words"
                                 >
                                     {GENERAL_INFO.email}
                                 </a>
-                                <p className="text-xs text-editorial-muted leading-relaxed">
+                                <p className="text-[11px] sm:text-xs text-editorial-muted leading-relaxed">
                                     Open for technical discussions, software development engagements, and architectural advisory.
                                 </p>
                             </div>
 
                             {/* Resume & Documents */}
-                            <div className="space-y-3 font-sans">
-                                <p className="text-xs uppercase tracking-[0.2em] font-medium text-editorial-muted">
+                            <div className="space-y-1.5 sm:space-y-2 lg:space-y-[clamp(0.2rem,0.5vh,0.6rem)] font-sans">
+                                <p className="text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium text-editorial-muted">
                                     Curriculum Vitae
                                 </p>
                                 <a
                                     href={GENERAL_INFO.resume}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-sm text-editorial-ink font-medium hover:underline underline-offset-4"
+                                    className="inline-flex items-center gap-2 text-xs sm:text-sm text-editorial-ink font-medium hover:underline underline-offset-4"
                                 >
                                     <span>Download Resume (Google Drive)</span>
-                                    <ArrowUpRight className="size-4" aria-hidden="true" />
+                                    <ArrowUpRight className="size-3.5 sm:size-4" aria-hidden="true" />
                                 </a>
                             </div>
 
                             {/* Social Profiles */}
-                            <div className="space-y-3 font-sans">
-                                <p className="text-xs uppercase tracking-[0.2em] font-medium text-editorial-muted">
+                            <div className="space-y-1.5 sm:space-y-2 lg:space-y-[clamp(0.2rem,0.5vh,0.6rem)] font-sans">
+                                <p className="text-[11px] sm:text-xs uppercase tracking-[0.2em] font-medium text-editorial-muted">
                                     Public Profiles
                                 </p>
-                                <ul className="space-y-2">
+                                <ul className="space-y-1.5 sm:space-y-2 lg:space-y-[clamp(0.2rem,0.5vh,0.5rem)]">
                                     {SOCIAL_LINKS.map((link) => (
                                         <li key={link.name}>
                                             <a
                                                 href={link.url}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-2 text-sm text-editorial-ink capitalize hover:underline underline-offset-4"
+                                                className="inline-flex items-center gap-2 text-xs sm:text-sm text-editorial-ink capitalize hover:underline underline-offset-4"
                                             >
                                                 <span>{link.name}</span>
-                                                <ArrowUpRight className="size-3.5 text-editorial-muted" aria-hidden="true" />
+                                                <ArrowUpRight className="size-3 sm:size-3.5 text-editorial-muted" aria-hidden="true" />
                                             </a>
                                         </li>
                                     ))}
@@ -256,7 +256,7 @@ const Navbar = () => {
                             </div>
 
                             {/* Builder Note */}
-                            <div className="pt-6 border-t border-editorial-border/40 font-sans text-xs text-editorial-muted">
+                            <div className="pt-3 sm:pt-4 lg:pt-[clamp(0.4rem,1vh,1rem)] border-t border-editorial-border/40 font-sans text-[11px] sm:text-xs text-editorial-muted leading-relaxed">
                                 <p>
                                     Independent software venture currently under establishment with two engineering partners.
                                 </p>
@@ -265,7 +265,7 @@ const Navbar = () => {
                     </div>
 
                     {/* BOTTOM STATUS FOOTER */}
-                    <div className="pt-8 border-t border-editorial-border/60 flex flex-wrap items-center justify-between gap-4 font-sans text-xs text-editorial-muted">
+                    <div className="pt-4 sm:pt-6 lg:pt-[clamp(0.5rem,1.2vh,1rem)] border-t border-editorial-border/60 flex flex-wrap items-center justify-between gap-2 sm:gap-4 font-sans text-xs text-editorial-muted shrink-0">
                         <span>&copy; {new Date().getFullYear()} Rohan Shikhare &bull; Software Developer</span>
                         <span>Designed with editorial restraint</span>
                     </div>
